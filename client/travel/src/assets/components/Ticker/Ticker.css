@@ -1,0 +1,45 @@
+/* Ticker Container */
+.logo-ticker {
+    width: 100vw; /* Full width of viewport */
+    height: 202px; /* Fixed height */
+    overflow: hidden; /* Hide overflowing content */
+    position: relative;
+    background-color: #001F54; /* Optional background */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    padding: 50px 0; /* Add 50px margin above and below */
+  }
+  
+  /* Inner Container with Animation */
+  .ticker-container {
+    display: flex;
+    align-items: center;
+    animation: scroll 20s linear infinite; /* Infinite scrolling animation */
+    width: calc(100% * 3); /* Enough width for smooth infinite effect */
+  }
+  
+  /* Individual Logo */
+  .ticker-logo {
+    height: 100%; /* Adjust logo height to fit the container */
+    margin: 0 30px; /* Space between logos (30px on both sides) */
+    object-fit: contain; /* Preserve aspect ratio */
+  }
+  
+  /* Infinite Scrolling Animation */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0); /* Start position */
+    }
+    100% {
+      transform: translateX(-100%); /* Scroll by one full container width */
+    }
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    .ticker-logo {
+      margin: 0 15px; /* Reduce space for smaller screens */
+    }
+  }
+  

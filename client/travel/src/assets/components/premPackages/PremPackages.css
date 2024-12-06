@@ -1,0 +1,131 @@
+.prem-packages {
+    text-align: center;
+    padding-top: 30px;
+    background-color: #001F54;
+    margin-top: 40px;
+  }
+  
+  .heading {
+    font-size: 2rem;
+    margin-bottom: 0px;
+    color: #fff;
+    font-weight: lighter;
+    font-family: Orchestra-DEMO, serif;
+    font-size: 96px;
+  }
+  
+  
+  
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  .subheading {
+    font-size: 1.5rem;
+    margin-bottom: 0px;
+    color: #fff;
+    font-family: Poppins;
+  }
+  
+  .packages-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .package-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  
+  .package-card h3 {
+    font-size: 1.5rem;
+    font-family: Poppins;
+    margin-bottom: 3px;
+  }
+  
+  .package-card .price {
+    font-size: 1.2rem;
+    font-family: Poppins;
+    margin-bottom: 05px;
+  }
+  
+  .package-card .monthly-price {
+   
+    margin-right: 10px;
+  }
+  
+  .package-card .yearly-price {
+    display: none;
+    display: run-in;
+  }
+  
+  .package-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  
+  .package-card ul li {
+    margin-bottom: 5px;
+    font-family: Poppins;
+  }
+  
+  .package-card .pay-button {
+    background-color: #C9A33E;
+    color: #001f54;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .package-card .pay-button:hover {
+    background-color: #ffd700;
+  }
+  
+  .yearly-0 {
+    background-color: #30599e;
+  }
+  
+  .yearly-1 {
+    background-color: #30599e;
+  }
+  
+  .yearly-2 {
+    background-color: #30599e;
+  }
+  
+  input:checked ~ .packages-container .package-card .monthly-price {
+    display: inline;
+  }
+  
+  input:checked ~ .packages-container .package-card .yearly-price {
+    display: inline;
+  }

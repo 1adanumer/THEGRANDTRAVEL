@@ -1,0 +1,103 @@
+/* General Wrapper to Center the Banner */
+.banner-wrapper {
+    display: flex;
+    justify-content: center; /* Horizontally center the banner */
+    align-items: center; /* Vertically center the banner */
+    height: 0vh; /* Full viewport height */
+    width: 0%; /* Full width of the viewport */
+    background-color: #c51515; /* Optional light background */
+    padding-left: 50px; /* Remove padding */
+    margin-left: 50px; /* Remove margin */
+  }
+  
+  /* Banner Container with Flex Layout */
+  .banner-container {
+    display: flex;
+    justify-content: space-between; /* Space between content and image */
+    align-items: center; /* Vertically center the content */
+    width: 1146px; /* Fixed width for banner */
+    height: 282px; /* Fixed height for banner */
+    background-color: #001F54;
+    margin-left: 180px;
+    margin-top: 30px;
+    padding: px; /* 20px padding for inner content */
+    box-sizing: border-box; /* Ensure padding is included in the dimensions */
+    border-radius: 20px; /* Optional: Rounded corners */
+  }
+  
+  /* Banner Content */
+  .banner-content {
+    max-width: 600px; /* Limit content width */
+    padding-left: 50px;
+  }
+  
+  .banner-heading {
+    font-size: 56px;
+    font-weight: lighter;
+    font-family: Orchestra-DEMO, serif;
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .book-now-button {
+    background-color: #f0c419;
+    color: #ffffff;
+    border: none;
+    padding: 5px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: Poppins;
+  }
+  
+  .book-now-button:hover {
+    background-color: #e5b917;
+  }
+  
+  .banner-image img {
+    width: 720px;
+    height: 452px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  /* Responsive Design for smaller screens */
+  @media (max-width: 1024px) {
+    .banner-container {
+      flex-direction: column; /* Stack items vertically */
+      text-align: center;
+    }
+  
+    .banner-content {
+      max-width: 100%; /* Full width for smaller screens */
+      margin-bottom: 20px;
+    }
+  
+    .banner-heading {
+      font-size: 2rem;
+    }
+  
+    .book-now-button {
+      font-size: 1rem;
+      padding: 12px 25px;
+    }
+  
+    .banner-image img {
+      width: 100%; /* Make image responsive */
+      height: auto;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .banner-heading {
+      font-size: 1.5rem;
+    }
+  
+    .book-now-button {
+      font-size: 1rem;
+      padding: 10px 20px;
+    }
+  }
+  

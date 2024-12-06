@@ -1,0 +1,88 @@
+.contact-container {
+  padding: 40px 20px;
+  background-color: #f3f4f6;
+  text-align: center;
+}
+
+.contact-heading {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #001f54;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.contact-form {
+  background-color: #001f54;
+  width: 350px;
+  border-radius: 15px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-input {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: #001f54;
+  background-color: #fff;
+}
+
+.contact-message {
+  height: 100px;
+  resize: none;
+}
+
+.contact-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #C9A33E;
+  color: #001f54;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #ffd700;
+}
+
+.map-container {
+  display: flex;
+  justify-content: center;
+}
+
+.map-container iframe {
+  border: 0;
+  border-radius: 10px;
+  width: 350px;
+  max-width: 600px;
+  height: 365px;
+}
+
+@media (min-width: 768px) {
+  .contact-content {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .contact-form {
+    margin-right: 20px;
+  }
+}
