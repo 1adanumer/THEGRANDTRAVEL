@@ -9,10 +9,12 @@ import Contact from '../../components/Contact/Contact'
 import Footer from '../../components/Footer/Footer'
 import Ticker from '../../components/Ticker/Ticker'
 import PremPackages from '../../components/premPackages/PremPackages'
+import SecNav from '../../components/SecNav/SecNav'
 
 const Home = () => {
   return (
     <div>
+      <SecNav/>
       <HeroSection/>
       <Ticker/>
       <Destinations/>

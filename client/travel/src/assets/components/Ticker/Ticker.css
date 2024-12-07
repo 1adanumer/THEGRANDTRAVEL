@@ -1,14 +1,14 @@
 /* Ticker Container */
 .logo-ticker {
     width: 100vw; /* Full width of viewport */
-    height: 202px; /* Fixed height */
+    height: 162px; /* Fixed height */
     overflow: hidden; /* Hide overflowing content */
     position: relative;
     background-color: #001F54; /* Optional background */
     display: flex;
     justify-content: center; /* Center content horizontally */
     align-items: center; /* Center content vertically */
-    padding: 50px 0; /* Add 50px margin above and below */
+    padding-bottom: 90px; /* Add 50px margin above and below */
   }
   
   /* Inner Container with Animation */
@@ -22,7 +22,7 @@
   /* Individual Logo */
   .ticker-logo {
     height: 100%; /* Adjust logo height to fit the container */
-    margin: 0 30px; /* Space between logos (30px on both sides) */
+    margin: 0 0px; /* Space between logos (30px on both sides) */
     object-fit: contain; /* Preserve aspect ratio */
   }
   

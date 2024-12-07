@@ -5,16 +5,6 @@ import SearchBar from "../SearchBar/SearchBar";
 const HeroSection = () => {
   return (
     <section className="hero-section">
-      {/* Navigation Links */}
-      <div className="hero-nav">
-        <a href="#page1">Jobs</a>
-        <a href="#page2">Search</a>
-        <a href="#page3">Blogs</a>
-        <a href="#page4">Booking</a>
-        <a href="#page5">Agents</a>
-        <a href="#page6">Hotel</a>
-        <a href="#page7">Get Quote</a>
-      </div>
 
       {/* Title */}
       <h1 className="hero-title">Your Next Grand Travel</h1>
