@@ -9,7 +9,7 @@
   background-color: #ffffff;
   cursor: pointer;
   scale: 1;
-  animation: slide-in 3s ease-out forwards;
+  animation: slide-in 2s ease-out forwards;
 }
 
 /* Section Title */
@@ -20,8 +20,8 @@
   scale: 1;
   font-size: 96px;
   margin-bottom: 40px;
-  font-family: Orchestra-DEMO, serif;
-  animation: slide-in 3s ease-out forwards;
+  font-family: 'Poppins', sans-serif;
+  animation: slide-in 2s ease-out forwards;
 }
 
 /* Bento Grid */
@@ -30,7 +30,7 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  animation: slide-in 3s ease-out forwards;
+  animation: slide-in 2s ease-out forwards;
 }
 
 /* Slide-in Animation */

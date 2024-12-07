@@ -1,4 +1,5 @@
 import React from "react";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 import "./Footer.css";
 
 const Footer = () => {
@@ -17,6 +18,50 @@ const Footer = () => {
             →
           </button>
         </form>
+      </div>
+
+      {/* Social Icons */}
+      <div className="social-icons">
+        <a
+          href="https://www.facebook.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="social-icon"
+        >
+          <FaFacebook />
+        </a>
+        <a
+          href="https://www.twitter.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="social-icon"
+        >
+          <FaTwitter />
+        </a>
+        <a
+          href="https://www.instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="social-icon"
+        >
+          <FaInstagram />
+        </a>
+        <a
+          href="https://www.linkedin.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="social-icon"
+        >
+          <FaLinkedin />
+        </a>
+        <a
+          href="https://www.youtube.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="social-icon"
+        >
+          <FaYoutube />
+        </a>
       </div>
 
       {/* Footer Content */}

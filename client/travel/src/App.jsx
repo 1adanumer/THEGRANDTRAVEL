@@ -5,8 +5,10 @@ import "./App.css"; // Optional, for any global styles
 import Footer from "./assets/components/Footer/Footer";
 import Destinations from "./assets/pages/Destinations/Destinations";
 import Packages from "./assets/pages/Packages/Packages";
-
+import FAQ from "./assets/pages/FAQ/FAQ";
+import Testimony from "./assets/pages/Testimony/Testimony";
 import Home from "./assets/pages/Home/Home";
+import Contact from "./assets/pages/Contact/Contact";
 
 const App = () => {
   return (
@@ -19,6 +21,9 @@ const App = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/destinations" element={<Destinations />} />
                 <Route path="/packages" element={<Packages />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/testimonials" element={<Testimony />} />
             
             </Routes>
 

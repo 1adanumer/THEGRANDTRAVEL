@@ -56,7 +56,7 @@ const Testimonials = () => {
 
   return (
     <div className="testimonials">
-      <h2>What our clients say about us</h2>
+      <h2>Our clients</h2>
       <div className="testimonials-container">
         <button className="arrow left-arrow" onClick={handlePrev}>
           &lt;
