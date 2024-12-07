@@ -1,12 +1,11 @@
 import React from 'react'
-import Packages from '../../components/Packages/Packages'
-import TwoNavbar from '../../components/TwoNavbar/TwoNavbar'
 import PremPackages from '../../components/premPackages/PremPackages'
 import ChooseUs from '../../components/ChooseUs/ChooseUs'
+import SecNav from '../../components/SecNav/SecNav'
 const Package = () => {
   return (
     <div>
-        <TwoNavbar/>
+        <SecNav/>
         <PremPackages/>
         <ChooseUs/>
     </div>
