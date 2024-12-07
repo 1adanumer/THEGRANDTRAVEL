@@ -25,10 +25,10 @@ const HeroSection = () => {
           {/* Duplicated Images */}
           {[...Array(5)].map((_, i) => (
             <React.Fragment key={i}>
-              <img src="slider 1.png" alt="Card 1" className="slider-card" />
-              <img src="slider 2.png" alt="Card 2" className="slider-card" />
-              <img src="slider 3.png" alt="Card 3" className="slider-card" />
-              <img src="slider 4.png" alt="Card 4" className="slider-card" />
+              <img src="s1.png" alt="Card 1" className="slider-card" />
+              <img src="s2.png" alt="Card 2" className="slider-card" />
+              <img src="s3.png" alt="Card 3" className="slider-card" />
+              <img src="s4.png" alt="Card 4" className="slider-card" />
             </React.Fragment>
           ))}
         </div>
