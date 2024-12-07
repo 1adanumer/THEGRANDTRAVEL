@@ -5,13 +5,12 @@
   "type": "module",
   "homepage": ".",
   "engines": {
-    "node": "16.x"
+    "node": "22.x"
   },
   "scripts": {
     "dev": "vite",
-    "build": "npx vite build",
+    "build": "vite build",
     "homepage": ".",
-    "start": "vercel start",
     "lint": "eslint .",
     "preview": "vite preview"
   },
