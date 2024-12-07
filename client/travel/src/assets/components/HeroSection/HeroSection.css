@@ -76,6 +76,7 @@
   .slider-track {
     display: flex;
     gap: 20px;
+    background: transparent;
     animation: scroll 30s linear infinite;
   }
   
@@ -83,6 +84,7 @@
     width: 300px; /* Updated width */
     height: 375px; /* Updated height */
     border-radius: 0px;
+    
     object-fit: cover;
   }
   
