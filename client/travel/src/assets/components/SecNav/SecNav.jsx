@@ -1,7 +1,7 @@
 import React from "react";
-import "./TwoNavbar.css";
+import "./SecNav.css";
 
-const TwoNavbar = () => {
+const SecNav = () => {
   return (
     <nav className="two-navbar">
       <ul className="navbar-links">
@@ -16,4 +16,4 @@ const TwoNavbar = () => {
   );
 };
 
-export default TwoNavbar;
+export default SecNav;
