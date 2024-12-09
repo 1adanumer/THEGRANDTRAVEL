@@ -9,6 +9,9 @@ import FAQ from "./assets/pages/FAQ/FAQ";
 import Testimony from "./assets/pages/Testimony/Testimony";
 import Home from "./assets/pages/Home/Home";
 import Contact from "./assets/pages/Contact/Contact";
+import Blog from "./assets/pages/Blog/Blog";
+import Agent from "./assets/pages/Agent/Agent";
+import Admin from "./assets/pages/Admin/Admin";
 
 const App = () => {
   return (
@@ -24,6 +27,9 @@ const App = () => {
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/testimonials" element={<Testimony />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/agent" element={<Agent />} />
+                <Route path="/admin" element={<Admin />} />
             
             </Routes>
 

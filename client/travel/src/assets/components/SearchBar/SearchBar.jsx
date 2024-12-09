@@ -23,7 +23,7 @@ const SearchBar = () => {
           <FaPlaneDeparture className="icon" />
           <input
             type="text"
-            placeholder="Flying from"
+            placeholder="Flying From"
             value={flyingFrom}
             onChange={(e) => setFlyingFrom(e.target.value)}
           />
@@ -32,7 +32,7 @@ const SearchBar = () => {
           <FaPlaneArrival className="icon" />
           <input
             type="text"
-            placeholder="Flying to"
+            placeholder="Flying To"
             value={flyingTo}
             onChange={(e) => setFlyingTo(e.target.value)}
           />
@@ -57,7 +57,7 @@ const SearchBar = () => {
           <FaSearch className="icon" /> Search
         </button>
 
-        <div className="additional-options">
+        {/* <div className="additional-options">
           <label>
             Passengers:
             <select value={passengers} onChange={(e) => setPassengers(e.target.value)}>
@@ -75,7 +75,7 @@ const SearchBar = () => {
               <option value="Business">Business</option>
             </select>
           </label>
-        </div>
+        </div> */}
       </div>
     </div>
   );
