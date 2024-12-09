@@ -12,6 +12,7 @@ import Contact from "./assets/pages/Contact/Contact";
 import Blog from "./assets/pages/Blog/Blog";
 import Agent from "./assets/pages/Agent/Agent";
 import Admin from "./assets/pages/Admin/Admin";
+import Flights from "./assets/pages/Flights/Flights";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/agent" element={<Agent />} />
                 <Route path="/admin" element={<Admin />} />
+                <Route path="/flights" element={<Flights />} />
             
             </Routes>
 

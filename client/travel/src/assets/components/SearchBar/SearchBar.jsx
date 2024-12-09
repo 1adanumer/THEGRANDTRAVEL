@@ -20,7 +20,7 @@ const SearchBar = () => {
     <div className="search-bar-container">
       <div className="search-bar">
         <div className="search-field">
-          <FaPlaneDeparture className="icon" />
+         
           <input
             type="text"
             placeholder="Flying From"
@@ -29,7 +29,6 @@ const SearchBar = () => {
           />
         </div>
         <div className="search-field">
-          <FaPlaneArrival className="icon" />
           <input
             type="text"
             placeholder="Flying To"
@@ -38,7 +37,7 @@ const SearchBar = () => {
           />
         </div>
         <div className="search-field">
-          <FaCalendarAlt className="icon" />
+          
           <input
             type="date"
             value={departureDate}
@@ -46,7 +45,7 @@ const SearchBar = () => {
           />
         </div>
         <div className="search-field">
-          <FaCalendarAlt className="icon" />
+          
           <input
             type="date"
             value={returnDate}
@@ -57,25 +56,7 @@ const SearchBar = () => {
           <FaSearch className="icon" /> Search
         </button>
 
-        {/* <div className="additional-options">
-          <label>
-            Passengers:
-            <select value={passengers} onChange={(e) => setPassengers(e.target.value)}>
-              {[...Array(10).keys()].map((num) => (
-                <option key={num + 1} value={num + 1}>
-                  {num + 1}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            Class:
-            <select value={classType} onChange={(e) => setClassType(e.target.value)}>
-              <option value="Economy">Economy</option>
-              <option value="Business">Business</option>
-            </select>
-          </label>
-        </div> */}
+        
       </div>
     </div>
   );
