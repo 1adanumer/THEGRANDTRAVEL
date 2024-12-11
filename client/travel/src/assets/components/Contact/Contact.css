@@ -1,3 +1,4 @@
+/* Contact Container */
 .contact-container {
   padding: 40px 20px;
   background-color: #f3f4f6;
@@ -62,6 +63,7 @@
   background-color: #ffd700;
 }
 
+/* Map Container */
 .map-container {
   display: flex;
   justify-content: center;
@@ -75,14 +77,78 @@
   height: 365px;
 }
 
+/* Media Queries for Responsiveness */
+
+/* For tablets and larger screens (min-width: 768px) */
 @media (min-width: 768px) {
   .contact-content {
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
+    gap: 40px; /* Increase gap between form and map */
   }
 
   .contact-form {
     margin-right: 20px;
+    width: 400px; /* Adjust the width of the contact form */
+  }
+
+  .contact-heading {
+    font-size: 48px; /* Reduced heading size for larger screens */
+  }
+
+  .contact-button {
+    font-size: 1rem; /* Slightly smaller button text */
+    padding: 12px; /* Adjust padding for larger screens */
+  }
+
+  .map-container iframe {
+    width: 500px; /* Increase map size for larger screens */
+    height: 400px; /* Increase map height for larger screens */
+  }
+}
+
+/* For smaller screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .contact-form {
+    width: 100%; /* Form takes up full width on smaller screens */
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
+
+  .contact-heading {
+    font-size: 40px; /* Reduced heading size for mobile */
+  }
+
+  .contact-button {
+    font-size: 1.1rem; /* Slightly smaller button text */
+    padding: 12px; /* Adjust padding */
+  }
+
+  .map-container iframe {
+    width: 90%; /* Adjust map size for smaller screens */
+    height: 300px; /* Adjust map height for smaller screens */
+  }
+}
+
+/* For very small screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .contact-heading {
+    font-size: 32px; /* Reduced font size for very small screens */
+  }
+
+  .contact-form {
+    width: 100%;
+    padding: 15px; /* Reduced padding */
+  }
+
+  .contact-button {
+    font-size: 1rem; /* Slightly smaller button text */
+    padding: 10px; /* Further reduced padding */
+  }
+
+  .map-container iframe {
+    width: 100%; /* Full-width map on very small screens */
+    height: 250px; /* Adjust height */
+    display: none;
   }
 }
