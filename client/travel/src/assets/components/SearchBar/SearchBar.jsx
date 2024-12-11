@@ -1,62 +1,166 @@
-import React, { useState } from "react";
-import { FaPlaneDeparture, FaPlaneArrival, FaCalendarAlt, FaSearch } from "react-icons/fa";
-import "./SearchBar.css";
+import React, { useState } from 'react';
+import './SearchBar.css';
 
 const SearchBar = () => {
-  const [flyingFrom, setFlyingFrom] = useState("");
-  const [flyingTo, setFlyingTo] = useState("");
-  const [departureDate, setDepartureDate] = useState("");
-  const [returnDate, setReturnDate] = useState("");
-  const [passengers, setPassengers] = useState(1);
-  const [classType, setClassType] = useState("Economy");
+  const [activeTab, setActiveTab] = useState('flights');
+  const [formData, setFormData] = useState({});
+
+  const handleTabClick = (tabName) => {
+    setActiveTab(tabName);
+    setFormData({});
+  };
+
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSearch = () => {
-    alert(
-      `Searching flights from ${flyingFrom} to ${flyingTo} departing on ${departureDate} and returning on ${returnDate}. ${passengers} passenger(s) in ${classType}.`
-    );
+    const pageMap = {
+      flights: '/flights',
+      hotels: '/hotels',
+      flightHotels: '/flight-hotels',
+      packages: '/packages',
+    };
+
+    const queryString = new URLSearchParams(formData).toString();
+    window.location.href = `${pageMap[activeTab]}?${queryString}`;
   };
 
   return (
-    <div className="search-bar-container">
-      <div className="search-bar">
-        <div className="search-field">
-         
-          <input
-            type="text"
-            placeholder="Flying From"
-            value={flyingFrom}
-            onChange={(e) => setFlyingFrom(e.target.value)}
-          />
-        </div>
-        <div className="search-field">
-          <input
-            type="text"
-            placeholder="Flying To"
-            value={flyingTo}
-            onChange={(e) => setFlyingTo(e.target.value)}
-          />
-        </div>
-        <div className="search-field">
-          
-          <input
-            type="date"
-            value={departureDate}
-            onChange={(e) => setDepartureDate(e.target.value)}
-          />
-        </div>
-        <div className="search-field">
-          
-          <input
-            type="date"
-            value={returnDate}
-            onChange={(e) => setReturnDate(e.target.value)}
-          />
-        </div>
-        <button className="search-button" onClick={handleSearch}>
-          <FaSearch className="icon" /> Search
+    <div className="search-bar">
+      <div className="tabs">
+        <button
+          className={activeTab === 'flights' ? 'active' : ''}
+          onClick={() => handleTabClick('flights')}
+        >
+          Flights
         </button>
+        <button
+          className={activeTab === 'hotels' ? 'active' : ''}
+          onClick={() => handleTabClick('hotels')}
+        >
+          Hotels
+        </button>
+        <button
+          className={activeTab === 'flightHotels' ? 'active' : ''}
+          onClick={() => handleTabClick('flightHotels')}
+        >
+          Flight + Hotels
+        </button>
+        <button
+          className={activeTab === 'packages' ? 'active' : ''}
+          onClick={() => handleTabClick('packages')}
+        >
+          Packages
+        </button>
+      </div>
 
-        
+      <div className="form-container">
+        {activeTab === 'flights' && (
+          <div className="flights-form">
+            <input
+              type="text"
+              name="departure"
+              placeholder="Departure City"
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              name="destination"
+              placeholder="Arrival City"
+              onChange={handleInputChange}
+            />
+            <input
+              type="date"
+              name="departureDate"
+              placeholder='Departure Date'
+              aria-label='Departure Date'
+              onChange={handleInputChange}
+            />
+            <input type="date" name="returnDate" onChange={handleInputChange} />
+          </div>
+        )}
+
+        {activeTab === 'hotels' && (
+          <div className="hotels-form">
+            <input
+              type="text"
+              name="city"
+              placeholder="City"
+              onChange={handleInputChange}
+            />
+            <input
+              type="date"
+              name="checkIn"
+              placeholder="Check-in Date"
+              onChange={handleInputChange}
+            />
+            <input
+              type="date"
+              name="checkOut"
+              placeholder="Check-out Date"
+              onChange={handleInputChange}
+            />
+          </div>
+        )}
+
+        {activeTab === 'flightHotels' && (
+          <div className="flight-hotels-form">
+            <input
+              type="text"
+              name="departure"
+              placeholder="Departure City"
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              name="destination"
+              placeholder="Destination City"
+              onChange={handleInputChange}
+            />
+            <input
+              type="date"
+              name="departureDate"
+              onChange={handleInputChange}
+            />
+            <input
+              type="date"
+              name="returnDate"
+              onChange={handleInputChange}
+            />
+            <input
+              type="date"
+              name="checkIn"
+              placeholder="Hotel Check-in"
+              onChange={handleInputChange}
+            />
+          </div>
+        )}
+
+        {activeTab === 'packages' && (
+          <div className="packages-form">
+            <input
+              type="text"
+              name="destination"
+              placeholder="Destination"
+              onChange={handleInputChange}
+            />
+            <input
+              type="date"
+              name="startDate"
+              onChange={handleInputChange}
+            />
+            <input
+              type="date"
+              name="endDate"
+              onChange={handleInputChange}
+            />
+          </div>
+        )}
+
+        <button className="search-btn" onClick={handleSearch}>
+          Search
+        </button>
       </div>
     </div>
   );

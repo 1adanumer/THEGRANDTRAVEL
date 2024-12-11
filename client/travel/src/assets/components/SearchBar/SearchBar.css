@@ -1,126 +1,138 @@
-/* Container Styles */
-.search-bar-container {
+/* Search Bar Styles */
+.search-bar {
+  max-width: 90%; /* Ensure it fits within smaller screens */
+  margin: auto;
+  padding: 20px;
+  background-color: #f9f9f9; /* Soft background for contrast */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  width: 100%;
+  gap: 20px;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Search Bar */
-.search-bar {
+/* Tabs Styling */
+.tabs {
   display: flex;
-  position: relative;
-  align-items: center;
-  gap: 10px;
-  width: 1000px;
-  height: 100px;
-  background-color: #ffffff;
-  border: 4px solid #c9a33e; /* Golden outline */
-  border-radius: 10px; /* Smooth corners */
-  padding: 10px 20px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  justify-content: center; /* Center the tabs horizontally */
+  gap: 10px; /* Space between tabs */
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px; /* Space below tabs */
 }
 
-/* Search Field */
-.search-field {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.tabs button {
   flex: 1;
-  position: relative;
-}
-
-.search-field input {
-  width: 100%;
+  max-width: 150px; /* Balance tab widths */
+  padding: 12px 0;
+  background-color: transparent;
   border: none;
-  background: none;
-  outline: none;
+  font-weight: 600;
   font-size: 16px;
-  font-family: "Poppins", sans-serif;
-  color: #333;
-  padding: 5px 10px;
+  color: #555;
+  text-align: center;
+  cursor: pointer;
   border-bottom: 2px solid transparent;
-  transition: border-color 0.3s ease;
+  transition: color 0.3s, border-bottom-color 0.3s;
 }
 
-.search-field input:focus {
-  border-color: #001f54;
+.tabs button.active {
+  color: #003366; /* Navy Blue */
+  border-bottom-color: #ffcc00; /* Golden */
 }
 
-.search-field .icon {
-  font-size: 18px;
-  color: #001f54;
+.tabs button:hover {
+  color: #003366;
+}
+
+/* Form Container */
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Enable wrapping on smaller screens */
+  gap: 20px;
+  align-items: center;
+}
+
+/* Input Fields */
+.form-container input,
+.form-container select {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  min-width: 180px; /* Minimum width to prevent excessive shrinkage */
+  color: #003366; /* Navy Blue text */
+  background-color: #ffffff;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-container input:focus,
+.form-container select:focus {
+  border-color: #ffcc00; /* Golden focus border */
+  box-shadow: 0 0 5px rgba(255, 204, 0, 0.6); /* Soft glow */
+  outline: none;
 }
 
 /* Search Button */
-.search-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  background: #c9a33e; /* Solid golden color */
-  color: #ffffff;
+.search-btn {
+  padding: 12px 25px;
+  background-color: #003366; /* Navy Blue */
+  color: #ffcc00; /* Golden text */
   border: none;
-  padding: 15px 30px;
-  font-size: 16px;
-  font-family: "Poppins", sans-serif;
-  font-weight: bold;
-  border-radius: 10px; /* Matches the overall border radius */
-  cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.search-button:hover {
-  transform: scale(1.05);
-}
-
-/* Additional Options in Bottom-Right */
-.additional-options {
-  display: flex;
-  position: absolute;
-  bottom: -50px; /* Positioned below the search bar */
-  right: 0px; /* Positioned to the right */
-  gap: 30px;
-  font-family: "Poppins", sans-serif;
-}
-
-.additional-options label {
+  border-radius: 8px;
+  font-weight: 600;
   font-size: 14px;
-  color: #fff;
-}
-
-.additional-options select {
-  padding: 5px 10px;
-  border-radius: 10px;
-  font-family: "Poppins", sans-serif;
-  color: #333;
-  outline: none;
+  font-family: 'Poppins', sans-serif;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-/* Responsive Design */
+.search-btn:hover {
+  background-color: #002244; /* Darker Navy Blue */
+  transform: translateY(-2px);
+}
+
+.search-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
+  .form-container {
+    flex-direction: column; /* Stack items vertically */
+    gap: 15px;
+  }
+
+  .search-btn {
+    width: 100%; /* Button spans full width */
+  }
+
+  .tabs {
+    flex-direction: row; /* Ensure tabs stay in row, even on small screens */
+    flex-wrap: nowrap; /* Prevent wrapping */
+  }
+}
+
+@media (max-width: 480px) {
   .search-bar {
-    flex-direction: column;
-    height: auto;
-    padding: 20px;
+    padding: 15px; /* Reduce padding for smaller screens */
   }
 
-  .search-field {
-    flex: 1;
-    width: 100%;
+  .tabs {
+    flex-direction: row; /* Keep tabs in a row */
+    gap: 10px; /* Maintain spacing */
   }
 
-  .search-button {
-    width: 100%;
+  .tabs button {
+    max-width: none; /* Remove fixed width for better scaling */
+    font-size: 14px; /* Smaller font size */
   }
 
-  .additional-options {
-    flex-direction: column;
-    bottom: -100px;
-    right: 0;
-    gap: 10px;
+  .form-container input,
+  .form-container select {
+    min-width: 100%; /* Ensure inputs take full width */
   }
 }

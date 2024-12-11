@@ -17,11 +17,9 @@
   font-size: 36px;
   font-weight: lighter;
   color: #000000;
-  scale: 1;
-  font-size: 96px;
-  margin-bottom: 40px;
   font-family: 'Poppins', sans-serif;
   animation: slide-in 2s ease-out forwards;
+  margin-bottom: 40px;
 }
 
 /* Bento Grid */
@@ -44,71 +42,76 @@
     transform: translateX(0);
   }
 }
-  
-  /* Bento Images */
+
+/* Bento Images */
+.bento-image {
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+/* Assign Equal Width and Height for Bento Layout */
+.bento-image {
+  width: calc(33.333% - 20px); /* Ensures equal width for each image */
+  height: 224px; /* Fixed height for images */
+}
+
+.bento-image:hover {
+  transform: scale(1.05); /* Hover effect to scale up */
+}
+
+/* Load More Button */
+.load-more-btn {
+  padding: 15px 30px;
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: lighter;
+  color: white;
+  background-color: #C9A33E;
+  border: none;
+  border-radius: 8px;
+  margin-top: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.load-more-btn:hover {
+  background-color: #C9A33E;
+}
+
+.load-more-btn:active {
+  background-color: #C9A33E;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 28px;
+  }
+
+  /* Bento Grid - Stack images in 2 columns on medium screens */
   .bento-image {
-    height: 224px;
-    object-fit: cover;
-    border-radius: 10px;
-    scale: 1;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 20px); /* Two columns on smaller screens */
   }
-  
-  /* Assign random widths for bento layout */
-  .bento-image:nth-child(1) {
-    width: 25%;
+
+  .bento-grid {
+    gap: 15px; /* Reduce gaps for smaller screens */
   }
-  .bento-image:nth-child(2) {
-    width: 60%;
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 24px;
   }
-  .bento-image:nth-child(3) {
-    width: 25%;
+
+  /* Bento Grid - Stack images in a single column on small screens */
+  .bento-image {
+    width: 100%; /* Full width for each image */
+    height: 180px; /* Adjust height for mobile screens */
   }
-  .bento-image:nth-child(4) {
-    width: 25%;
+
+  .bento-grid {
+    gap: 10px; /* Further reduce gaps for mobile */
   }
-  .bento-image:nth-child(5) {
-    width: 25%;
-  }
-  .bento-image:nth-child(6) {
-    width: 20%;
-  }
-  
-  /* Load More Button */
-  .load-more-btn {
-    padding: 15px 30px;
-    font-family: Poppins;
-    font-size: 18px;
-    font-weight: lighter;
-    color: white;
-    background-color: #C9A33E;
-    border: none;
-    border-radius: 8px;
-    margin-top: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .load-more-btn:hover {
-    background-color: #C9A33E;
-  }
-  
-  .load-more-btn:active {
-    background-color: #C9A33E;
-  }
-  
-  /* Responsive Styling */
-  @media (max-width: 768px) {
-    .section-title {
-      font-size: 28px;
-    }
-  
-    .bento-image {
-      width: 100%; /* Make images stack in a single column */
-    }
-  
-    .bento-grid {
-      gap: 15px; /* Reduce gaps for smaller screens */
-    }
-  }
-  
+}

@@ -11,7 +11,7 @@ const AdminLoginRegister = () => {
   return (
     <div className={`admin-container ${isDarkMode ? "dark-mode" : "light-mode"}`}>
       <button className="theme-toggle" onClick={toggleTheme}>
-        {isDarkMode ? "☀️" : "🌙"}
+        
       </button>
       <div className="admin-image">
         <img

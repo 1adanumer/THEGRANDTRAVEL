@@ -10,12 +10,13 @@ import Footer from '../../components/Footer/Footer'
 import Ticker from '../../components/Ticker/Ticker'
 import PremPackages from '../../components/premPackages/PremPackages'
 import SecNav from '../../components/SecNav/SecNav'
+import HeroSecVersion from '../../components/HeroSecVersion/HeroSecVersion'
 
 const Home = () => {
   return (
     <div>
       <SecNav/>
-      <HeroSection/>
+      <HeroSecVersion/>
       <Ticker/>
       <Destinations/>
       <Banner/>

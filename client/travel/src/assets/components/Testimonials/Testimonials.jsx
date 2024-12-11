@@ -13,28 +13,28 @@ const testimonialsData = [
     id: 2,
     name: "Jane Smith",
     country: "UK",
-    testimonial: "Amazing experience, highly recommend! Totally worth every penny!",
+    testimonial: "Fantastic service! Highly recommend to anyone!",
     image: "person.jpg",
   },
   {
     id: 3,
     name: "Carlos Rodriguez",
     country: "Spain",
-    testimonial: "Amazing experience, highly recommend! Totally worth every penny!",
+    testimonial: "Great quality and fast delivery. Will definitely come back!",
     image: "person.jpg",
   },
   {
     id: 4,
     name: "Maria Garcia",
     country: "Mexico",
-    testimonial: "Amazing experience, highly recommend! Totally worth every penny!",
+    testimonial: "Very happy with my purchase. Excellent customer service!",
     image: "person.jpg",
   },
   {
     id: 5,
     name: "Li Wei",
     country: "China",
-    testimonial: "Amazing experience, highly recommend! Totally worth every penny!",
+    testimonial: "Exceeded expectations, would highly recommend!",
     image: "person.jpg",
   },
 ];
@@ -42,41 +42,37 @@ const testimonialsData = [
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? testimonialsData.length - 1 : prevIndex - 1
-    );
-  };
-
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === testimonialsData.length - 1 ? 0 : prevIndex + 1
     );
   };
 
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? testimonialsData.length - 1 : prevIndex - 1
+    );
+  };
+
   return (
-    <div className="testimonials">
-      <h2>Our clients</h2>
-      <div className="testimonials-container">
-        <button className="arrow left-arrow" onClick={handlePrev}>
+    <div className="testimonial-section">
+      <h2>What Our Clients Say</h2>
+      <div className="testimonial-slider">
+        <button className="arrow prev" onClick={handlePrev}>
           &lt;
         </button>
-        <div className="testimonials-cards">
-          {testimonialsData.slice(currentIndex, currentIndex + 3).map((testimonial, index) => (
-            <div
-              key={testimonial.id}
-              className={`testimonial-card ${
-                index === 1 ? "active" : "inactive"
-              }`}
-            >
-              <img src={testimonial.image} alt={testimonial.name} />
-              <h3>{testimonial.name}</h3>
-              <p>{testimonial.country}</p>
-              <p>{testimonial.testimonial}</p>
-            </div>
-          ))}
+        <div className="testimonial-card">
+          <img
+            src={testimonialsData[currentIndex].image}
+            alt={testimonialsData[currentIndex].name}
+          />
+          <h3>{testimonialsData[currentIndex].name}</h3>
+          <p className="country">{testimonialsData[currentIndex].country}</p>
+          <p className="testimonial-text">
+            "{testimonialsData[currentIndex].testimonial}"
+          </p>
         </div>
-        <button className="arrow right-arrow" onClick={handleNext}>
+        <button className="arrow next" onClick={handleNext}>
           &gt;
         </button>
       </div>

@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
+
   return (
     <header className="header">
       <div className="header-left">
@@ -23,11 +29,20 @@ const Header = () => {
         </div>
       </div>
       <div className="header-right">
-        <img
-          src="Male User.png"
-          alt="Icon"
-          className="header-icon"
-        />
+        <div className="hamburger-menu" onClick={toggleMenu}>
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </div>
+        {isMenuOpen && (
+          <div className="dropdown-menu">
+            <a href="/destinations">Destinations</a>
+            <a href="/packages">Packages</a>
+            <a href="/testimonials">Testimonials</a>
+            <a href="/faq">FAQ</a>
+            <a href="/contact">Contact</a>
+          </div>
+        )}
       </div>
     </header>
   );
