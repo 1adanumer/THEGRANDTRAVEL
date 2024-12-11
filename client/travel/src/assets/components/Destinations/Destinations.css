@@ -1,3 +1,6 @@
+*{
+  font-family: 'Poppins', sans-serif;
+}
 /* Container Styling */
 .destinations-container {
   display: flex;
@@ -16,8 +19,8 @@
 .section-title {
   font-size: 36px;
   font-weight: lighter;
-  color: #000000;
   font-family: 'Poppins', sans-serif;
+  color: #000000;
   animation: slide-in 2s ease-out forwards;
   margin-bottom: 40px;
 }

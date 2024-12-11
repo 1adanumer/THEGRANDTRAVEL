@@ -13,7 +13,7 @@ const Header = () => {
       <div className="header-left">
         <a href="/">
           <img
-            src="logo.png"
+            src="logo12.png"
             alt="Logo"
             className="header-logo"
           />
