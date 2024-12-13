@@ -15,7 +15,6 @@ import HeroSecVersion from '../../components/HeroSecVersion/HeroSecVersion'
 const Home = () => {
   return (
     <div>
-      <SecNav/>
       <HeroSecVersion/>
       <Ticker/>
       <Destinations/>
