@@ -78,6 +78,7 @@
   width: 25px;
   height: 20px;
   cursor: pointer;
+  z-index: 10;
 }
 
 .hamburger-menu .bar {
@@ -129,6 +130,12 @@
   }
 }
 
+@media screen and (min-width: 769px) {
+  .hamburger-menu {
+    display: flex; /* Visible on larger screens, optional */
+    margin-right: 20px;
+  }
+}
 @media screen and (max-width: 480px) {
   .header-logo {
     width: 130px;

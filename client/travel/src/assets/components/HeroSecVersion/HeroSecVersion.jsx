@@ -6,7 +6,7 @@ const HeroSecVersion = () => {
   return (
     <div className="hero-section">
       <div className="hero-overlay">
-        
+        <h1>Where travel meets<br></br> luxury and Safety</h1>
         <SearchBar />
       </div>
     </div>

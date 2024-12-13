@@ -20,7 +20,6 @@ const Home = () => {
       <Ticker/>
       <Destinations/>
       <Banner/>
-      <PremPackages/>
       <Testimonials/>
       <Contact/>
     </div>

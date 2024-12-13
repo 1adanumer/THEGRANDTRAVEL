@@ -20,28 +20,26 @@
   margin: 0 auto;
   overflow: hidden;
 }
-
-.arrow {
-  background-color: transparent;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  padding: 10px;
-  color: #333;
-}
-
-.arrow:focus {
-  outline: none;
-}
-
 .testimonial-card {
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: ;
   padding: 30px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 300px;
   text-align: center;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0.5;
+  margin: 0 10px;
+}
+
+.testimonial-card.active {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.testimonial-card.faded {
+  opacity: 0.5;
+  transform: scale(0.9);
 }
 
 .testimonial-card img {
@@ -85,6 +83,6 @@
   }
 
   .testimonial-card {
-    width: 300px;
+    width: 200px;
   }
 }

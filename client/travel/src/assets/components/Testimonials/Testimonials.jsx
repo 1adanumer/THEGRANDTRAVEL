@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+// Testimonials.js
+import React, { useEffect, useState } from "react";
 import "./Testimonials.css";
 
 const testimonialsData = [
@@ -42,39 +43,39 @@ const testimonialsData = [
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === testimonialsData.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonialsData.length);
+    }, 2000);
 
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? testimonialsData.length - 1 : prevIndex - 1
-    );
+    return () => clearInterval(interval);
+  }, []);
+
+  const getVisibleTestimonials = () => {
+    const total = testimonialsData.length;
+    const indices = [
+      (currentIndex - 1 + total) % total, // Previous
+      currentIndex, // Current
+      (currentIndex + 1) % total, // Next
+    ];
+    return indices.map((index) => testimonialsData[index]);
   };
 
   return (
     <div className="testimonial-section">
       <h2>What Our Clients Say</h2>
       <div className="testimonial-slider">
-        <button className="arrow prev" onClick={handlePrev}>
-          &lt;
-        </button>
-        <div className="testimonial-card">
-          <img
-            src={testimonialsData[currentIndex].image}
-            alt={testimonialsData[currentIndex].name}
-          />
-          <h3>{testimonialsData[currentIndex].name}</h3>
-          <p className="country">{testimonialsData[currentIndex].country}</p>
-          <p className="testimonial-text">
-            "{testimonialsData[currentIndex].testimonial}"
-          </p>
-        </div>
-        <button className="arrow next" onClick={handleNext}>
-          &gt;
-        </button>
+        {getVisibleTestimonials().map((testimonial, index) => (
+          <div
+            key={testimonial.id}
+            className={`testimonial-card ${index === 1 ? "active" : "faded"}`}
+          >
+            <img src={testimonial.image} alt={testimonial.name} />
+            <h3>{testimonial.name}</h3>
+            <p className="country">{testimonial.country}</p>
+            <p className="testimonial-text">"{testimonial.testimonial}"</p>
+          </div>
+        ))}
       </div>
     </div>
   );
