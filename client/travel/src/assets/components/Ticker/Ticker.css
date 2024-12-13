@@ -16,7 +16,7 @@
   .ticker-container {
     display: flex;
     align-items: center;
-    animation: scroll 20s linear infinite; /* Infinite scrolling animation */
+    animation: scroll 60s linear infinite; /* Infinite scrolling animation */
     width: calc(100% * 3); /* Enough width for smooth infinite effect */
   }
   

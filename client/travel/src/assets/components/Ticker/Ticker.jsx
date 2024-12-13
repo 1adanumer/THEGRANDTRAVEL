@@ -16,6 +16,10 @@ const Ticker = () => {
     'logo2.png',
     'logo3.png',
     'logo4.png',
+    'logo5.png',
+    'logo6.png',
+    'logo7.png',
+    'logo7.png',
   ];
 
   // Duplicate logos infinitely by rendering multiple copies

@@ -4,13 +4,14 @@ import DestinHero from '../../components/DestinHero/DestinHero'
 import Destinations from '../../components/Destinations/Destinations'
 import UnforgetDestin from '../../components/UnforgetDestin/UnforgetDestin'
 import Contact from '../../components/Contact/Contact'
+import DestinationPage from '../../components/DestinationPage/DestinationPage'
 
 const Destination = () => {
   return (
     
     <div>
         <DestinHero/>
-        <Destinations/>
+        <DestinationPage/>
         <UnforgetDestin/>
         <Contact/>
     </div>
