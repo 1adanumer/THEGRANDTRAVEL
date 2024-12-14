@@ -4,7 +4,6 @@ import Header from "./assets/components/Header/Header";
 import "./App.css"; // Optional, for any global styles
 import Footer from "./assets/components/Footer/Footer";
 import Destinations from "./assets/pages/Destinations/Destinations";
-import Packages from "./assets/pages/Packages/Packages";
 import FAQ from "./assets/pages/FAQ/FAQ";
 import Testimony from "./assets/pages/Testimony/Testimony";
 import Home from "./assets/pages/Home/Home";
@@ -13,6 +12,11 @@ import Blog from "./assets/pages/Blog/Blog";
 import Agent from "./assets/pages/Agent/Agent";
 import Admin from "./assets/pages/Admin/Admin";
 import Flights from "./assets/pages/Flights/Flights";
+import NewPackages from "./assets/pages/NewPackages/NewPackages";
+import Hotels from "./assets/pages/Hotels/Hotels";
+import SignUp from "./assets/pages/SignUpPage/SignUpPage";
+import LoginPage from "./assets/pages/LoginPage/LoginPage";
+import Profile from "./assets/components/Profile/Profile";
 
 const App = () => {
   return (
@@ -24,7 +28,7 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/destinations" element={<Destinations />} />
-                <Route path="/packages" element={<Packages />} />
+                <Route path="/packages" element={<NewPackages />} />
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/testimonials" element={<Testimony />} />
@@ -32,6 +36,10 @@ const App = () => {
                 <Route path="/agent" element={<Agent />} />
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/flights" element={<Flights />} />
+                <Route path="/hotels" element={<Hotels />} />
+                <Route path="/login" element={<LoginPage />} />
+                  <Route path="/signup" element={<SignUp />} />
+                  <Route path="/profile" element={<Profile />} />
             
             </Routes>
 

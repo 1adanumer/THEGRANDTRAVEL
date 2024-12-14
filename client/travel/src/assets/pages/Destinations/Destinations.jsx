@@ -12,7 +12,6 @@ const Destination = () => {
     <div>
         <DestinHero/>
         <DestinationPage/>
-        <UnforgetDestin/>
         <Contact/>
     </div>
   )

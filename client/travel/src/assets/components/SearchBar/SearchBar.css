@@ -2,6 +2,7 @@
 .search-bar {
   max-width: 90%; /* Ensure it fits within smaller screens */
   margin: auto;
+  margin-top: 10px;
   padding: 20px;
   background-color: #f9f9f9; /* Soft background for contrast */
   border-radius: 12px;

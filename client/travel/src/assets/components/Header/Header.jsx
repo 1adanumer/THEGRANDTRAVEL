@@ -43,6 +43,8 @@ const Header = () => {
             <a href="/testimonials">Testimonials</a>
             <a href="/faq">FAQ</a>
             <a href="/contact">Contact</a>
+            <a href="/signup">Sign in</a>
+            <a href="/login">Log in</a>
           </div>
         )}
       </div>

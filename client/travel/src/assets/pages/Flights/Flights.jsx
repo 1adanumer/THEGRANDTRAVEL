@@ -6,7 +6,6 @@ import FlightBookingPage from '../../components/FlightBookingPage/FlightBookingP
 const Flights = () => {
   return (
     <div>
-      <SecNav />
       <SearchBar />
       <FlightBookingPage />
     </div>
