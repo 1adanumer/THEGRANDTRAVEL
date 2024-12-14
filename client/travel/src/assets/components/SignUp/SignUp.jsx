@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
+import "./SignUp.css"; // Import the CSS file for styling
 
-const SignUp = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+class SignUp extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      email: "",
+      password: "",
+    };
+  }
 
-  const handleSignUp = async (e) => {
+  handleSignUp = async (e) => {
     e.preventDefault();
+    const { name, email, password } = this.state;
     try {
       const response = await fetch("http://localhost:5000/api/auth/signup", {
         method: "POST",
@@ -26,33 +33,54 @@ const SignUp = () => {
     }
   };
 
-  return (
-    <form onSubmit={handleSignUp}>
-      <h2>Sign Up</h2>
-      <label>Name:</label>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        required
-      />
-      <label>Email:</label>
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <label>Password:</label>
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <button type="submit">Sign Up</button>
-    </form>
-  );
-};
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  render() {
+    const { name, email, password } = this.state;
+
+    return (
+      <div className="signup-container">
+        <form onSubmit={this.handleSignUp} className="signup-form">
+          <h2>Sign Up</h2>
+          <div className="form-group">
+            <label>Name:</label>
+            <input
+              type="text"
+              name="name"
+              value={name}
+              onChange={this.handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Email:</label>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={this.handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Password:</label>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={this.handleChange}
+              required
+            />
+          </div>
+          <button type="submit" className="submit-btn">
+            Sign Up
+          </button>
+        </form>
+      </div>
+    );
+  }
+}
 
 export default SignUp;
