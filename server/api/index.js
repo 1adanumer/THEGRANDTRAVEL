@@ -2,7 +2,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const authRoutes = require("./routes/authRoutes"); // Import the signup route
+const authRoutes = require("../routes/authRoutes"); // Import the signup route
 const cors = require("cors");
 
 dotenv.config();
