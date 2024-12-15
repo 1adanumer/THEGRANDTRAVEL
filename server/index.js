@@ -12,6 +12,15 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+  });
+}
+
+
 // Use the auth routes for handling authentication-related endpoints
 app.use("/api/auth", authRoutes);
 
