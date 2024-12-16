@@ -43,8 +43,9 @@ const Header = () => {
             <a href="/testimonials">Testimonials</a>
             <a href="/faq">FAQ</a>
             <a href="/contact">Contact</a>
-            <a href="/signup">Sign in</a>
-            <a href="/login">Log in</a>
+            <a href="/signup">SignUp</a>
+            <a href="/login">Login</a>
+            <a href="/hotels">Hotels</a>
           </div>
         )}
       </div>

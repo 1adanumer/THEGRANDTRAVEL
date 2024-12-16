@@ -84,3 +84,82 @@
 .book-button:hover {
   background-color: #0056b3;
 }
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .page-header h1 {
+    font-size: 2rem;
+  }
+
+  .page-header p {
+    font-size: 1rem;
+  }
+
+  .destination-info h2 {
+    font-size: 1.25rem;
+  }
+
+  .destination-info p {
+    font-size: 0.9rem;
+  }
+
+  .book-button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .page-header p {
+    font-size: 0.9rem;
+  }
+
+  .destination-info h2 {
+    font-size: 1.1rem;
+  }
+
+  .destination-info p {
+    font-size: 0.8rem;
+  }
+
+  .book-button {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .page-header p {
+    font-size: 0.8rem;
+  }
+
+  .destination-info h2 {
+    font-size: 1rem;
+  }
+
+  .destination-info p {
+    font-size: 0.7rem;
+  }
+
+  .book-button {
+    font-size: 0.7rem;
+    padding: 5px 10px;
+  }
+
+  .destination-list {
+    grid-template-columns: 1fr; /* Single column layout for small screens */
+  }
+
+  .destination-card {
+    transform: none; /* Remove initial transform for better visibility */
+    opacity: 1; /* Ensure cards are visible */
+  }
+}

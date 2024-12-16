@@ -1,28 +1,31 @@
-// server.js (or app.js)
-const express = require("express");
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-const authRoutes = require("./routes/authRoutes"); // Import the signup route
-const cors = require("cors");
+const express = require('express');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+const path = require('path');
+const flightsRoutes = require('./routes/flightsRoutes');
+const authRoutes = require('./routes/authRoutes'); // Import the signup route
 
 dotenv.config();
+
 const app = express();
 
 // Middleware
 app.use(express.json());
 app.use(cors());
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
+// Serve static files in production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../client/build")));
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
   });
 }
 
-
-// Use the auth routes for handling authentication-related endpoints
-app.use("/api/auth", authRoutes);
+// Routes
+app.use('/api/flights', flightsRoutes); // Use the flights route
+app.use("/api/auth", authRoutes); // Use the auth routes for authentication
 
 // Connect to MongoDB
 mongoose

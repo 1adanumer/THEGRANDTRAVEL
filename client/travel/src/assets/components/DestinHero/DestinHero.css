@@ -113,7 +113,9 @@
       font-size: 24px; /* Even smaller font for very small screens */
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Reduce text shadow */
     }
-  
+  .hero-image{
+    display: none;
+  }
     .navigation ul {
       gap: 8px; /* Further reduce gap */
     }
