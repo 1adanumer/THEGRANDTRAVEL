@@ -1,46 +1,48 @@
 /* Ticker Container */
 .logo-ticker {
-    width: 100vw; /* Full width of viewport */
-    height: 162px; /* Fixed height */
-    overflow: hidden; /* Hide overflowing content */
-    position: relative;
-    background-color: #001F54; /* Optional background */
-    display: flex;
-    padding-top: 90px;
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    padding-bottom: 90px; /* Add 50px margin above and below */
+  width: 100vw; /* Full width of viewport */
+  height: 200px; /* Adjusted height */
+  overflow: hidden; /* Hide overflowing content */
+  position: relative;
+  background-color: #001F54; /* Optional background */
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  padding-top: 90px;
+  padding-bottom: 90px; /* Add 50px margin above and below */
+}
+
+/* Inner Container with Animation */
+.ticker-container {
+  display: flex;
+  align-items: center;
+  animation: scroll 60s linear infinite; /* Infinite scrolling animation */
+  width: calc(100% * 3); /* Enough width for smooth infinite effect */
+}
+
+/* Individual Logo */
+.ticker-logo {
+  width: 150px; /* Increased width */
+  height: 150px; /* Increased height */
+  margin: 0 15px; /* Space between logos */
+  object-fit: contain; /* Preserve aspect ratio */
+}
+
+/* Infinite Scrolling Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0); /* Start position */
   }
-  
-  /* Inner Container with Animation */
-  .ticker-container {
-    display: flex;
-    align-items: center;
-    animation: scroll 60s linear infinite; /* Infinite scrolling animation */
-    width: calc(100% * 3); /* Enough width for smooth infinite effect */
+  100% {
+    transform: translateX(-100%); /* Scroll by one full container width */
   }
-  
-  /* Individual Logo */
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
   .ticker-logo {
-    height: 100%; /* Adjust logo height to fit the container */
-    margin: 0 0px; /* Space between logos (30px on both sides) */
-    object-fit: contain; /* Preserve aspect ratio */
+    width: 120px; /* Adjust width for smaller screens */
+    height: 120px; /* Adjust height for smaller screens */
+    margin: 0 10px; /* Reduce space for smaller screens */
   }
-  
-  /* Infinite Scrolling Animation */
-  @keyframes scroll {
-    0% {
-      transform: translateX(0); /* Start position */
-    }
-    100% {
-      transform: translateX(-100%); /* Scroll by one full container width */
-    }
-  }
-  
-  /* Responsive Styling */
-  @media (max-width: 768px) {
-    .ticker-logo {
-      margin: 0 15px; /* Reduce space for smaller screens */
-    }
-  }
-  
+}
