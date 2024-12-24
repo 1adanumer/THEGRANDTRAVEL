@@ -1,4 +1,5 @@
 const axios = require('axios');
+const Flight = require('../models/Flight');
 
 const getFlightDetails = async (req, res) => {
   try {
@@ -10,6 +11,19 @@ const getFlightDetails = async (req, res) => {
     });
 
     const flights = response.data.data;
+
+    // Save flight data to MongoDB
+    await Flight.insertMany(flights.map(flight => ({
+      airline: flight.airline.name,
+      flight_number: flight.flight.iata,
+      departure_airport: flight.departure.iata,
+      arrival_airport: flight.arrival.iata,
+      departure_time: flight.departure.scheduled,
+      arrival_time: flight.arrival.scheduled,
+      status: flight.flight_status,
+      // Add other fields as needed
+    })));
+
     res.json(flights);
   } catch (error) {
     console.error('Error fetching flight details:', error);
