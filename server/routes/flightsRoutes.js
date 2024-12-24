@@ -1,8 +1,8 @@
 const express = require('express');
-const { getFlights } = require('../controllers/flightsController');
+const { getFlightDetails } = require('../controllers/flightsController');
 const router = express.Router();
 
-// Fetch flights based on search criteria
-router.get('/search', getFlights);
+// Route to fetch flight details
+router.get('/details', getFlightDetails);
 
 module.exports = router;
