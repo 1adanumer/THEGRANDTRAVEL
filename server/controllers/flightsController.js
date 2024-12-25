@@ -1,36 +1,34 @@
-const axios = require('axios');
-const Flight = require('../models/Flight');
+const express = require('express');
+const router = express.Router();
+const Flight = require('../models/Flight'); // Assuming you have a Flight model
 
-const getFlightDetails = async (req, res) => {
+// Get flight details
+router.get('/details', async (req, res) => {
   try {
-    const response = await axios.get('http://api.aviationstack.com/v1/flights', {
-      params: {
-        access_key: process.env.AVIATION_STACK_API_KEY,
-        // Add other parameters as needed
-      },
-    });
+    const { airline, departureAirport, arrivalAirport, departureDate, arrivalDate } = req.query;
+    let query = {};
 
-    const flights = response.data.data;
+    if (airline) {
+      query['airline.name'] = { $regex: airline, $options: 'i' };
+    }
+    if (departureAirport) {
+      query['departure.iata'] = { $regex: departureAirport, $options: 'i' };
+    }
+    if (arrivalAirport) {
+      query['arrival.iata'] = { $regex: arrivalAirport, $options: 'i' };
+    }
+    if (departureDate) {
+      query['departure.scheduled'] = { $gte: new Date(departureDate), $lt: new Date(new Date(departureDate).setDate(new Date(departureDate).getDate() + 1)) };
+    }
+    if (arrivalDate) {
+      query['arrival.scheduled'] = { $gte: new Date(arrivalDate), $lt: new Date(new Date(arrivalDate).setDate(new Date(arrivalDate).getDate() + 1)) };
+    }
 
-    // Save flight data to MongoDB
-    await Flight.insertMany(flights.map(flight => ({
-      airline: flight.airline.name,
-      flight_number: flight.flight.iata,
-      departure_airport: flight.departure.iata,
-      arrival_airport: flight.arrival.iata,
-      departure_time: flight.departure.scheduled,
-      arrival_time: flight.arrival.scheduled,
-      status: flight.flight_status,
-      // Add other fields as needed
-    })));
-
-    res.json(flights);
+    const flights = await Flight.find(query).limit(100); // Adjust the query as needed
+    res.json({ data: flights });
   } catch (error) {
-    console.error('Error fetching flight details:', error);
-    res.status(500).json({ error: 'Failed to fetch flight details' });
+    res.status(500).json({ error: 'Error fetching flight details' });
   }
-};
+});
 
-module.exports = {
-  getFlightDetails,
-};
+module.exports = router;

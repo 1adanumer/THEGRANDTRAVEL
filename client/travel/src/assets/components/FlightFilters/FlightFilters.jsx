@@ -11,6 +11,7 @@ const FlightFilters = ({ filters, updateFilters }) => {
           <label key={airline}>
             <input
               type="checkbox"
+              checked={filters.airlines.includes(airline)}
               onChange={(e) => {
                 const checked = e.target.checked;
                 updateFilters(
@@ -28,13 +29,13 @@ const FlightFilters = ({ filters, updateFilters }) => {
       <div className="filter-section">
         <h3>Price</h3>
         <button
-          className="filter-button"
+          className={`filter-button ${filters.priceOrder === 'low-to-high' ? 'active' : ''}`}
           onClick={() => updateFilters('priceOrder', 'low-to-high')}
         >
           Low to High
         </button>
         <button
-          className="filter-button"
+          className={`filter-button ${filters.priceOrder === 'high-to-low' ? 'active' : ''}`}
           onClick={() => updateFilters('priceOrder', 'high-to-low')}
         >
           High to Low
@@ -45,6 +46,7 @@ const FlightFilters = ({ filters, updateFilters }) => {
         <label>
           <input
             type="checkbox"
+            checked={filters.nonStop}
             onChange={(e) => updateFilters('nonStop', e.target.checked)}
           />{' '}
           Non-stop Flights
@@ -52,6 +54,7 @@ const FlightFilters = ({ filters, updateFilters }) => {
         <label>
           <input
             type="checkbox"
+            checked={filters.refundable}
             onChange={(e) => updateFilters('refundable', e.target.checked)}
           />{' '}
           Refundable
@@ -59,6 +62,7 @@ const FlightFilters = ({ filters, updateFilters }) => {
         <label>
           <input
             type="checkbox"
+            checked={filters.extraBaggage}
             onChange={(e) => updateFilters('extraBaggage', e.target.checked)}
           />{' '}
           Extra Baggage

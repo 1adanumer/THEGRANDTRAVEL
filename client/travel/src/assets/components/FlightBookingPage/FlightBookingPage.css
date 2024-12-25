@@ -47,6 +47,8 @@ label {
   cursor: pointer;
   margin-right: 10px;
   font-size: 14px;
+  gap: 10px;
+  padding: 10px;
 }
 
 .filter-button:hover {

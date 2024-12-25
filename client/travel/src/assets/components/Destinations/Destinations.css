@@ -7,16 +7,17 @@
   padding: 0px 0px;
   margin-bottom: 40px;
   text-align: center;
-  background-color: #fff;
+  
   cursor: pointer;
 }
 
 /* Section Title */
 .section-title {
   font-size: 66px;
-  font-weight: bold;
+  padding-top: 40px;
+  font-weight: 650;
   font-family: 'Poppins', sans-serif;
-  color: #000000;
+  color: #001F54;
   margin-bottom: 40px;
 }
 
@@ -49,6 +50,12 @@
   opacity: 0; /* Hidden by default */
   transform: translateY(50px); /* Default offset */
 }
+.bento-image:hover {
+  transform: scale(1.05); /* Hover effect to scale up */
+}
+.bento-grid :hover {
+  transform: scale(1.05); /* Hover effect to scale up */
+}
 
 /* Animated Images */
 .bento-image.animate {
@@ -79,8 +86,8 @@
   font-family: Poppins;
   font-size: 18px;
   font-weight: lighter;
-  color: white;
-  background-color: #C9A33E;
+  color: black;
+  background-color: #FDD017;
   border: none;
   border-radius: 8px;
   margin-top: 30px;
@@ -89,7 +96,7 @@
 }
 
 .load-more-btn:hover {
-  background-color: #C9A33E;
+  scale: 1.05;
 }
 
 .load-more-btn:active {

@@ -1,7 +1,7 @@
 /* Contact Container */
 .contact-container {
   padding: 40px 20px;
-  background-color: #f3f4f6;
+  
   text-align: center;
 }
 
@@ -39,7 +39,7 @@
   margin-bottom: 15px;
   font-size: 1rem;
   color: #001f54;
-  background-color: #fff;
+  
 }
 
 .contact-message {
@@ -50,7 +50,7 @@
 .contact-button {
   width: 100%;
   padding: 15px;
-  background-color: #C9A33E;
+  background-color: #FDD017;
   color: #001f54;
   border: none;
   border-radius: 50px;
