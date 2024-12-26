@@ -12,7 +12,13 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+
+// CORS configuration
+const corsOptions = {
+  origin: 'https://thegrandtravelfrontend.vercel.app', // Allow requests from this frontend URL
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 
 // Serve static files in production
 if (process.env.NODE_ENV === "production") {
