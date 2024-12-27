@@ -1,9 +1,7 @@
-const express = require('express');
-const router = express.Router();
 const Flight = require('../models/Flight'); // Assuming you have a Flight model
 
 // Get flight details
-router.get('/details', async (req, res) => {
+const getFlightDetails = async (req, res) => {
   try {
     const { airline, departureAirport, arrivalAirport, departureDate, arrivalDate } = req.query;
     let query = {};
@@ -29,6 +27,8 @@ router.get('/details', async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: 'Error fetching flight details' });
   }
-});
+};
 
-module.exports = router;
+module.exports = {
+  getFlightDetails,
+};
