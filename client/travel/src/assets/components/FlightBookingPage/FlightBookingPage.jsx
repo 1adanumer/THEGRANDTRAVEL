@@ -3,6 +3,18 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './FlightBookingPage.css';
 
+const calculateFlightDuration = (departureTime, arrivalTime) => {
+  if (!departureTime || !arrivalTime) return 'N/A';
+  const departure = new Date(departureTime);
+  const arrival = new Date(arrivalTime);
+  const durationMs = arrival - departure;
+
+  const hours = Math.floor(durationMs / (1000 * 60 * 60));
+  const minutes = Math.floor((durationMs % (1000 * 60 * 60)) / (1000 * 60));
+
+  return `${hours}h ${minutes}m`;
+};
+
 const FlightBookingsPage = () => {
   const [flights, setFlights] = useState([]);
   const [filteredFlights, setFilteredFlights] = useState([]);
@@ -43,26 +55,26 @@ const FlightBookingsPage = () => {
 
     if (filters.airline) {
       filtered = filtered.filter((flight) =>
-        flight.airline.name.toLowerCase().includes(filters.airline.toLowerCase())
+        flight.airline?.name?.toLowerCase().includes(filters.airline.toLowerCase())
       );
     }
 
     if (filters.departureAirport) {
       filtered = filtered.filter((flight) =>
-        flight.departure.airport.toLowerCase().includes(filters.departureAirport.toLowerCase())
+        flight.departure?.airport?.toLowerCase().includes(filters.departureAirport.toLowerCase())
       );
     }
 
     if (filters.arrivalAirport) {
       filtered = filtered.filter((flight) =>
-        flight.arrival.airport.toLowerCase().includes(filters.arrivalAirport.toLowerCase())
+        flight.arrival?.airport?.toLowerCase().includes(filters.arrivalAirport.toLowerCase())
       );
     }
 
     if (filters.departureDate) {
       filtered = filtered.filter(
         (flight) =>
-          new Date(flight.departure.scheduled).toDateString() ===
+          new Date(flight.departure?.scheduled).toDateString() ===
           new Date(filters.departureDate).toDateString()
       );
     }
@@ -70,7 +82,7 @@ const FlightBookingsPage = () => {
     if (filters.arrivalDate) {
       filtered = filtered.filter(
         (flight) =>
-          new Date(flight.arrival.scheduled).toDateString() ===
+          new Date(flight.arrival?.scheduled).toDateString() ===
           new Date(filters.arrivalDate).toDateString()
       );
     }
@@ -84,18 +96,6 @@ const FlightBookingsPage = () => {
     setShowFlights(true);
   };
 
-  const calculateFlightDuration = (departureTime, arrivalTime) => {
-    if (!departureTime || !arrivalTime) return 'N/A';
-    const departure = new Date(departureTime);
-    const arrival = new Date(arrivalTime);
-    const durationMs = arrival - departure;
-
-    const hours = Math.floor(durationMs / (1000 * 60 * 60));
-    const minutes = Math.floor((durationMs % (1000 * 60 * 60)) / (1000 * 60));
-
-    return `${hours}h ${minutes}m`;
-  };
-
   const indexOfLastFlight = currentPage * flightsPerPage;
   const indexOfFirstFlight = indexOfLastFlight - flightsPerPage;
   const currentFlights = filteredFlights.slice(indexOfFirstFlight, indexOfLastFlight);
@@ -105,7 +105,7 @@ const FlightBookingsPage = () => {
   return (
     <div className="flight-page">
       <div className="filter-bar">
-        <h3>Filter by:</h3>
+        <h3>Filter Flights:</h3>
         <div>
           <label>Airline:</label>
           <input
@@ -145,7 +145,7 @@ const FlightBookingsPage = () => {
           Apply Filters
         </button>
         <button className="filter-button" onClick={handleShowFlights}>
-          Show Flights
+          Show All Flights
         </button>
       </div>
 
@@ -153,7 +153,7 @@ const FlightBookingsPage = () => {
         <main className="tickets-section">
           <h1>Available Flights</h1>
           {currentFlights.map((flight) => (
-            <FlightCard key={flight.flight?.iata || flight.flight?.number} flight={flight} />
+            <FlightCard key={flight.flight?.iata || flight.flight?.number} flight={flight} calculateFlightDuration={calculateFlightDuration} />
           ))}
           <div className="pagination">
             {Array.from({ length: Math.ceil(filteredFlights.length / flightsPerPage) }, (_, index) => (
@@ -172,7 +172,7 @@ const FlightBookingsPage = () => {
   );
 };
 
-const FlightCard = ({ flight }) => {
+const FlightCard = ({ flight, calculateFlightDuration }) => {
   const navigate = useNavigate();
   const [timeLeft, setTimeLeft] = useState('');
 
@@ -198,65 +198,54 @@ const FlightCard = ({ flight }) => {
     return () => clearInterval(timer);
   }, [flight.departure?.scheduled]);
 
-  const calculateFlightDuration = (departureTime, arrivalTime) => {
-    if (!departureTime || !arrivalTime) return 'N/A';
-    const departure = new Date(departureTime);
-    const arrival = new Date(arrivalTime);
-    const durationMs = arrival - departure;
-
-    const hours = Math.floor(durationMs / (1000 * 60 * 60));
-    const minutes = Math.floor((durationMs % (1000 * 60 * 60)) / (1000 * 60));
-
-    return `${hours}h ${minutes}m`;
-  };
-
-  const handleBookFlight = () => {
-    navigate('/contact'); // or '/signup' depending on your routing
-  };
-
   return (
     <div className="ticket-box">
       <div className="ticket-header">
         <img
-          src={`https://logo.clearbit.com/${flight.airline?.name
-            ?.replace(/\s+/g, '')
-            ?.toLowerCase()}.com`}
+          src={`https://logo.clearbit.com/${flight.airline?.name?.replace(/\s+/g, '').toLowerCase()}.com`}
           alt={flight.airline?.name || 'Airline Logo'}
           className="airline-logo"
         />
         <h2>{flight.airline?.name || 'N/A'}</h2>
-        <div className="flight-timer">{timeLeft}</div>
+        <div className="flight-timer-container">
+          <div className="flight-timer">{timeLeft}</div>
+          <div className="flight-timer-hover">Book flight quickly, you are running out of time!</div>
+        </div>
       </div>
       <div className="ticket-body">
         <p className="flight-route">
+          <i className="fas fa-plane-departure"></i>
           {flight.departure?.airport || 'N/A'} → {flight.arrival?.airport || 'N/A'}
         </p>
         <p className="flight-time">
+          <i className="fas fa-clock"></i>
           Departure: {new Date(flight.departure?.scheduled).toLocaleString() || 'N/A'}
         </p>
         <p className="flight-time">
+          <i className="fas fa-clock"></i>
           Arrival: {new Date(flight.arrival?.scheduled).toLocaleString() || 'N/A'}
         </p>
         <p className="flight-duration">
+          <i className="fas fa-hourglass-half"></i>
           Duration: {calculateFlightDuration(flight.departure?.scheduled, flight.arrival?.scheduled)}
         </p>
-        <p className="flight-status">
-          Status: {flight.flight_status || 'N/A'}
-        </p>
-        <p className="flight-terminal">
-          Departure Terminal: {flight.departure?.terminal || 'N/A'}
-        </p>
-        <p className="flight-gate">
-          Departure Gate: {flight.departure?.gate || 'N/A'}
-        </p>
-        <p className="flight-terminal">
-          Arrival Terminal: {flight.arrival?.terminal || 'N/A'}
-        </p>
         <div className="price-section">
-          <button className="price-button" onClick={handleBookFlight}>Book Flight</button>
           <div className="price-dropdown">
-            <p>With Heavy Baggage: $500</p>
-            <p>Without Heavy Baggage: $450</p>
+            <span><i className="fas fa-dollar-sign"></i> Price Options</span>
+            <div className="price-dropdown-content">
+              <p><i className="fas fa-suitcase-rolling"></i> With Heavy Baggage: $500</p>
+              <p><i className="fas fa-suitcase"></i> Without Heavy Baggage: $450</p>
+            </div>
+          </div>
+          <div className="book-dropdown">
+            <button className="book-button">
+              Book Now <i className="fas fa-caret-down"></i>
+            </button>
+            <div className="book-dropdown-content">
+              <p><i className="fas fa-plane"></i> Economy Class</p>
+              <p><i className="fas fa-plane"></i> Business Class</p>
+              <p><i className="fas fa-plane"></i> First Class</p>
+            </div>
           </div>
         </div>
       </div>
