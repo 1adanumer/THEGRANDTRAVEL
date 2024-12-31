@@ -110,10 +110,11 @@
 }
 
 /* For smaller screens (max-width: 768px) */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .contact-form {
-    width: 100%; /* Form takes up full width on smaller screens */
+    width: 80%; /* Form takes up full width on smaller screens */
     padding: 20px; /* Adjust padding for smaller screens */
+    height: fit-content;
   }
 
   .contact-heading {

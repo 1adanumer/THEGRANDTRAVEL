@@ -104,53 +104,55 @@ const FlightBookingsPage = () => {
 
   return (
     <div className="flight-page">
-      <div className="filter-bar">
-        <h3>Filter Flights:</h3>
-        <div>
-          <label>Airline:</label>
-          <input
-            type="text"
-            name="airline"
-            placeholder="Search Airline"
-            onChange={handleFilterChange}
-          />
+      {!showFlights && (
+        <div className="filter-bar">
+          <h3>Filter Flights:</h3>
+          <div>
+            <label>Airline:</label>
+            <input
+              type="text"
+              name="airline"
+              placeholder="Search Airline"
+              onChange={handleFilterChange}
+            />
+          </div>
+          <div>
+            <label>Departure Airport:</label>
+            <input
+              type="text"
+              name="departureAirport"
+              placeholder="Search Departure Airport"
+              onChange={handleFilterChange}
+            />
+          </div>
+          <div>
+            <label>Arrival Airport:</label>
+            <input
+              type="text"
+              name="arrivalAirport"
+              placeholder="Search Arrival Airport"
+              onChange={handleFilterChange}
+            />
+          </div>
+          <div>
+            <label>Departure Date:</label>
+            <input type="date" name="departureDate" onChange={handleFilterChange} />
+          </div>
+          <div>
+            <label>Arrival Date:</label>
+            <input type="date" name="arrivalDate" onChange={handleFilterChange} />
+          </div>
+          <button className="filter-button" onClick={filterFlights}>
+            Apply Filters
+          </button>
+          <button className="filter-button" onClick={handleShowFlights}>
+            Show All Flights
+          </button>
         </div>
-        <div>
-          <label>Departure Airport:</label>
-          <input
-            type="text"
-            name="departureAirport"
-            placeholder="Search Departure Airport"
-            onChange={handleFilterChange}
-          />
-        </div>
-        <div>
-          <label>Arrival Airport:</label>
-          <input
-            type="text"
-            name="arrivalAirport"
-            placeholder="Search Arrival Airport"
-            onChange={handleFilterChange}
-          />
-        </div>
-        <div>
-          <label>Departure Date:</label>
-          <input type="date" name="departureDate" onChange={handleFilterChange} />
-        </div>
-        <div>
-          <label>Arrival Date:</label>
-          <input type="date" name="arrivalDate" onChange={handleFilterChange} />
-        </div>
-        <button className="filter-button" onClick={filterFlights}>
-          Apply Filters
-        </button>
-        <button className="filter-button" onClick={handleShowFlights}>
-          Show All Flights
-        </button>
-      </div>
+      )}
 
       {showFlights && (
-        <main className="tickets-section">
+        <main className="tickets-section" style={{ display: 'block' }}>
           <h1>Available Flights</h1>
           {currentFlights.map((flight) => (
             <FlightCard key={flight.flight?.iata || flight.flight?.number} flight={flight} calculateFlightDuration={calculateFlightDuration} />
@@ -198,6 +200,10 @@ const FlightCard = ({ flight, calculateFlightDuration }) => {
     return () => clearInterval(timer);
   }, [flight.departure?.scheduled]);
 
+  const handleBookNow = () => {
+    navigate('/contact');
+  };
+
   return (
     <div className="ticket-box">
       <div className="ticket-header">
@@ -238,7 +244,7 @@ const FlightCard = ({ flight, calculateFlightDuration }) => {
             </div>
           </div>
           <div className="book-dropdown">
-            <button className="book-button">
+            <button className="book-button" onClick={handleBookNow}>
               Book Now <i className="fas fa-caret-down"></i>
             </button>
             <div className="book-dropdown-content">

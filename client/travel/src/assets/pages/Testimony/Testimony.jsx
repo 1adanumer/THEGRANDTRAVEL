@@ -6,7 +6,6 @@ import Testimonials from '../../components/Testimonials/Testimonials'
 const Testimony = () => {
   return (
     <div>
-        <SecNav/>
         <Patti/>
         <Testimonials/>
     </div>

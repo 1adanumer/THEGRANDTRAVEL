@@ -115,7 +115,9 @@
   }
 
   .hero-section .hero-image {
-    display: none;
+    opacity: 1;
+    width: fit-content;
+    height: 600px;
   }
 
   .hero-section .navigation ul {

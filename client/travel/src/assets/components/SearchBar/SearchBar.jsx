@@ -4,10 +4,12 @@ import './SearchBar.css';
 const SearchBar = () => {
   const [activeTab, setActiveTab] = useState('flights');
   const [formData, setFormData] = useState({});
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
     setFormData({});
+    setIsExpanded(false);
   };
 
   const handleInputChange = (e) => {
@@ -24,6 +26,12 @@ const SearchBar = () => {
 
     const queryString = new URLSearchParams(formData).toString();
     window.location.href = `${pageMap[activeTab]}?${queryString}`;
+  };
+
+  const handleExpand = () => {
+    if (activeTab === 'flights') {
+      setIsExpanded(true);
+    }
   };
 
   return (
@@ -63,21 +71,45 @@ const SearchBar = () => {
               name="departure"
               placeholder="Departure City"
               onChange={handleInputChange}
+              onFocus={handleExpand}
             />
             <input
               type="text"
               name="destination"
               placeholder="Arrival City"
               onChange={handleInputChange}
+              onFocus={handleExpand}
             />
             <input
               type="date"
               name="departureDate"
-              placeholder='Departure Date'
-              aria-label='Departure Date'
+              placeholder="Departure Date"
+              aria-label="Departure Date"
               onChange={handleInputChange}
             />
             <input type="date" name="returnDate" onChange={handleInputChange} />
+            {isExpanded && (
+              <div className="expanded-fields">
+                <select name="class" onChange={handleInputChange}>
+                  <option value="">Class</option>
+                  <option value="economy">Economy</option>
+                  <option value="business">Business</option>
+                  <option value="first">First</option>
+                </select>
+                <select name="passengers" onChange={handleInputChange}>
+                  <option value="">No of Passengers</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                </select>
+              </div>
+            )}
           </div>
         )}
 

@@ -46,12 +46,13 @@ body {
 
 .tickets-section {
   flex: 3;
+  display: none; /* Initially hidden */
 }
 
 .ticket-box {
   background-color: #fff;
   border-radius: 10px;
-  padding: 15px;
+  padding: 20px; /* Ensure padding of 20px on each side */
   margin-bottom: 15px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   height: auto;
@@ -62,7 +63,6 @@ body {
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
-  padding-left: 10px;
 }
 
 .airline-logo {
@@ -81,7 +81,6 @@ body {
   font-size: 0.9rem;
   font-weight: bold;
   transition: background-color 0.3s ease;
-  padding-left: 10px;
 }
 
 .flight-timer-container:hover {
@@ -106,7 +105,6 @@ body {
 .flight-time,
 .flight-duration {
   margin: 5px 0;
-  padding-left: 10px;
 }
 
 .ticket-body {
@@ -119,7 +117,6 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding-left: 10px;
 }
 
 .ticket-body p i {
@@ -131,7 +128,6 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
-  padding-left: 10px;
 }
 
 .price-dropdown,
@@ -211,4 +207,94 @@ body {
 
 .pagination button:hover {
   background-color: #003f89;
+}
+
+/* Specific styles for flight ticket headings */
+.ticket-header h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .flight-page {
+    flex-direction: column;
+  }
+
+  .filter-bar,
+  .tickets-section {
+    width: 100%;
+  }
+
+  .ticket-header,
+  .ticket-body p,
+  .price-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .flight-timer-container {
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-bar {
+    padding: 15px;
+  }
+
+  .ticket-box {
+    padding: 20px; /* Ensure padding of 20px on each side */
+  }
+
+  .ticket-header,
+  .ticket-body p,
+  .price-section {
+    padding-left: 0;
+  }
+
+  .flight-timer-container {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-bar {
+    display: block; /* Ensure filter bar is visible on mobile screens */
+  }
+
+  .ticket-box {
+    padding: 20px; /* Ensure padding of 20px on each side */
+    width: 100%; /* Ensure cards take full width */
+  }
+
+  .ticket-header,
+  .ticket-body p,
+  .price-section {
+    padding-left: 0;
+    flex-direction: row; /* Ensure icons and text are in the same line */
+    align-items: center; /* Align items in the center */
+  }
+
+  .flight-timer-container {
+    font-size: 0.7rem;
+  }
+
+  .ticket-header h2,
+  .ticket-body p,
+  .price-section span {
+    font-size: 0.8rem; /* Smaller text size on small screens */
+  }
+
+  .filter-button,
+  .book-button {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .pagination button {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
 }
