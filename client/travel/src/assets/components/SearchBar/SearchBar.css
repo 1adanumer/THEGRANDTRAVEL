@@ -5,7 +5,7 @@
   margin-top: 10px;
   padding: 20px;
   background-color: #f9f9f9; /* Soft background for contrast */
-  border-radius: 12px;
+  border-radius: 0; /* Set border-radius to 0 */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
@@ -48,7 +48,7 @@
 }
 
 /* Form Container */
-.form-container {
+.form-fields {
   display: flex;
   flex-wrap: wrap; /* Enable wrapping on smaller screens */
   gap: 10px; /* Space between fields */
@@ -57,23 +57,63 @@
 }
 
 /* Input Fields */
-.form-container input,
-.form-container select {
+.form-fields input,
+.form-fields select {
   flex: 1;
-  padding: 12px 15px;
+  width: 200px; /* Fixed width */
+  height: 40px; /* Fixed height */
+  padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 0; /* Set border-radius to 0 */
   font-size: 14px;
   font-family: 'Poppins', sans-serif;
-  min-width: 180px; /* Minimum width to prevent excessive shrinkage */
   color: #003366; /* Navy Blue text */
   background-color: #ffffff;
   transition: border-color 0.3s, box-shadow 0.3s;
   z-index: 1; /* Ensure dropdowns appear above other elements */
 }
 
-.form-container input:focus,
-.form-container select:focus {
+.form-fields input:focus,
+.form-fields select:focus {
+  border-color: #ffcc00; /* Golden focus border */
+  box-shadow: 0 0 5px rgba(255, 204, 0, 0.6); /* Soft glow */
+  outline: none;
+  z-index: 2; /* Ensure focused elements appear above others */
+}
+
+/* Specific styles for Flying From and Flying To fields */
+.form-fields .react-select__control {
+  width: 200px; /* Fixed width */
+  height: 40px; /* Fixed height */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 0; /* Set border-radius to 0 */
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  color: #003366; /* Navy Blue text */
+  background-color: #ffffff;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  z-index: 1; /* Ensure dropdowns appear above other elements */
+}
+
+.form-fields .react-select__value-container {
+  height: 40px; /* Fixed height */
+  padding: 0 10px;
+}
+
+.form-fields .react-select__input {
+  height: 40px; /* Fixed height */
+}
+
+.form-fields .react-select__single-value {
+  line-height: 40px; /* Align text vertically */
+}
+
+.form-fields .react-select__menu {
+  z-index: 1000; /* Ensure dropdown suggestions appear above other elements */
+}
+
+.form-fields .react-select__control--is-focused {
   border-color: #ffcc00; /* Golden focus border */
   box-shadow: 0 0 5px rgba(255, 204, 0, 0.6); /* Soft glow */
   outline: none;
@@ -81,12 +121,12 @@
 }
 
 /* Search Button */
-.search-btn {
+.search-button {
   padding: 12px 25px;
   background-color: #003366; /* Navy Blue */
   color: #ffcc00; /* Golden text */
   border: none;
-  border-radius: 8px;
+  border-radius: 0; /* Set border-radius to 0 */
   font-weight: 600;
   font-size: 14px;
   font-family: 'Poppins', sans-serif;
@@ -94,23 +134,23 @@
   transition: background-color 0.3s, transform 0.2s;
 }
 
-.search-btn:hover {
+.search-button:hover {
   background-color: #002244; /* Darker Navy Blue */
   transform: translateY(-2px);
 }
 
-.search-btn:active {
+.search-button:active {
   transform: translateY(0);
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-  .form-container {
+  .form-fields {
     flex-direction: column; /* Stack items vertically */
     gap: 10px; /* Reduce gap for smaller screens */
   }
 
-  .search-btn {
+  .search-button {
     width: 100%; /* Button spans full width */
   }
 
@@ -135,8 +175,10 @@
     font-size: 14px; /* Smaller font size */
   }
 
-  .form-container input,
-  .form-container select {
-    min-width: 100%; /* Ensure inputs take full width */
+  .form-fields input,
+  .form-fields select,
+  .form-fields .react-select__control {
+    width: 100%; /* Ensure inputs take full width */
+    height: 40px; /* Fixed height */
   }
 }

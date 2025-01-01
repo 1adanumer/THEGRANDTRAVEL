@@ -104,72 +104,68 @@ const FlightBookingsPage = () => {
 
   return (
     <div className="flight-page">
-      {!showFlights && (
-        <div className="filter-bar">
-          <h3>Filter Flights:</h3>
-          <div>
-            <label>Airline:</label>
-            <input
-              type="text"
-              name="airline"
-              placeholder="Search Airline"
-              onChange={handleFilterChange}
-            />
-          </div>
-          <div>
-            <label>Departure Airport:</label>
-            <input
-              type="text"
-              name="departureAirport"
-              placeholder="Search Departure Airport"
-              onChange={handleFilterChange}
-            />
-          </div>
-          <div>
-            <label>Arrival Airport:</label>
-            <input
-              type="text"
-              name="arrivalAirport"
-              placeholder="Search Arrival Airport"
-              onChange={handleFilterChange}
-            />
-          </div>
-          <div>
-            <label>Departure Date:</label>
-            <input type="date" name="departureDate" onChange={handleFilterChange} />
-          </div>
-          <div>
-            <label>Arrival Date:</label>
-            <input type="date" name="arrivalDate" onChange={handleFilterChange} />
-          </div>
-          <button className="filter-button" onClick={filterFlights}>
-            Apply Filters
-          </button>
-          <button className="filter-button" onClick={handleShowFlights}>
-            Show All Flights
-          </button>
+      <div className={`filter-bar ${showFlights ? 'hidden' : ''}`}>
+        <h3>Filter Flights:</h3>
+        <div>
+          <label>Airline:</label>
+          <input
+            type="text"
+            name="airline"
+            placeholder="Search Airline"
+            onChange={handleFilterChange}
+          />
         </div>
-      )}
+        <div>
+          <label>Departure Airport:</label>
+          <input
+            type="text"
+            name="departureAirport"
+            placeholder="Search Departure Airport"
+            onChange={handleFilterChange}
+          />
+        </div>
+        <div>
+          <label>Arrival Airport:</label>
+          <input
+            type="text"
+            name="arrivalAirport"
+            placeholder="Search Arrival Airport"
+            onChange={handleFilterChange}
+          />
+        </div>
+        <div>
+          <label>Departure Date:</label>
+          <input type="date" name="departureDate" onChange={handleFilterChange} />
+        </div>
+        <div>
+          <label>Arrival Date:</label>
+          <input type="date" name="arrivalDate" onChange={handleFilterChange} />
+        </div>
+        <button className="filter-button" onClick={filterFlights}>
+          Apply Filters
+        </button>
+        <button className="filter-button" onClick={handleShowFlights}>
+          Show All Flights
+        </button>
+      </div>
 
-      {showFlights && (
-        <main className="tickets-section" style={{ display: 'block' }}>
-          <h1>Available Flights</h1>
-          {currentFlights.map((flight) => (
-            <FlightCard key={flight.flight?.iata || flight.flight?.number} flight={flight} calculateFlightDuration={calculateFlightDuration} />
+      <main className="tickets-section" style={{ display: showFlights ? 'block' : 'none' }}>
+        <h1>Available Flights</h1>
+        {currentFlights.map((flight) => (
+          <FlightCard key={flight.flight?.iata || flight.flight?.number} flight={flight} calculateFlightDuration={calculateFlightDuration} />
+        ))}
+        <div className="pagination">
+          {Array.from({ length: Math.ceil(filteredFlights.length / flightsPerPage) }, (_, index) => (
+            <button
+              key={index + 1}
+              onClick={() => paginate(index + 1)}
+              className={currentPage === index + 1 ? 'active' : ''}
+            >
+              {index + 1}
+            </button>
           ))}
-          <div className="pagination">
-            {Array.from({ length: Math.ceil(filteredFlights.length / flightsPerPage) }, (_, index) => (
-              <button
-                key={index + 1}
-                onClick={() => paginate(index + 1)}
-                className={currentPage === index + 1 ? 'active' : ''}
-              >
-                {index + 1}
-              </button>
-            ))}
-          </div>
-        </main>
-      )}
+        </div>
+      </main>
     </div>
   );
 };

@@ -227,6 +227,10 @@ body {
     width: 100%;
   }
 
+  .filter-bar.hidden {
+    display: none; /* Hide filter bar on smaller screens */
+  }
+
   .ticket-header,
   .ticket-body p,
   .price-section {
