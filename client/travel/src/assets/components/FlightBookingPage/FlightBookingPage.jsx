@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { ClipLoader } from 'react-spinners';
 import './FlightBookingPage.css';
 
 const calculateFlightDuration = (departureTime, arrivalTime) => {
@@ -27,9 +28,11 @@ const FlightBookingsPage = () => {
   });
   const [currentPage, setCurrentPage] = useState(1);
   const [showFlights, setShowFlights] = useState(false);
+  const [loading, setLoading] = useState(false);
   const flightsPerPage = 10;
 
   const fetchFlights = async () => {
+    setLoading(true);
     try {
       const response = await axios.get('https://api.aviationstack.com/v1/flights', {
         params: {
@@ -42,6 +45,8 @@ const FlightBookingsPage = () => {
       setFilteredFlights(flightData);
     } catch (error) {
       console.error('Error fetching flights:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -150,21 +155,29 @@ const FlightBookingsPage = () => {
       </div>
 
       <main className="tickets-section" style={{ display: showFlights ? 'block' : 'none' }}>
-        <h1>Available Flights</h1>
-        {currentFlights.map((flight) => (
-          <FlightCard key={flight.flight?.iata || flight.flight?.number} flight={flight} calculateFlightDuration={calculateFlightDuration} />
-        ))}
-        <div className="pagination">
-          {Array.from({ length: Math.ceil(filteredFlights.length / flightsPerPage) }, (_, index) => (
-            <button
-              key={index + 1}
-              onClick={() => paginate(index + 1)}
-              className={currentPage === index + 1 ? 'active' : ''}
-            >
-              {index + 1}
-            </button>
-          ))}
-        </div>
+        {loading ? (
+          <div className="loader-container">
+            <ClipLoader size={50} color={"#003366"} loading={loading} />
+          </div>
+        ) : (
+          <>
+            <h1>Available Flights</h1>
+            {currentFlights.map((flight) => (
+              <FlightCard key={flight.flight?.iata || flight.flight?.number} flight={flight} calculateFlightDuration={calculateFlightDuration} />
+            ))}
+            <div className="pagination">
+              {Array.from({ length: Math.ceil(filteredFlights.length / flightsPerPage) }, (_, index) => (
+                <button
+                  key={index + 1}
+                  onClick={() => paginate(index + 1)}
+                  className={currentPage === index + 1 ? 'active' : ''}
+                >
+                  {index + 1}
+                </button>
+              ))}
+            </div>
+          </>
+        )}
       </main>
     </div>
   );
