@@ -1,10 +1,3 @@
-@font-face {
-  font-family: 'Orchestra DEMO';
-  src: url('/Orchestra-DEMO.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 /* Hero Section */
 .hero-section {
   height: 849px; /* Adjusted height */
@@ -16,7 +9,7 @@
 }
 
 /* Hero Title */
-.hero-title {
+.hero-section .hero-title {
   font-size: 96px;
   font-weight: lighter;
   font-family: 'Orchestra-DEMO', serif;

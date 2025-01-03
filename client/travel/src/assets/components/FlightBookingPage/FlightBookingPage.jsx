@@ -197,7 +197,7 @@ const FlightCard = ({ flight, calculateFlightDuration }) => {
   }, [flight.departure?.scheduled]);
 
   const handleBookNow = () => {
-    navigate('/contact');
+    navigate('/bookings');
   };
 
   return (

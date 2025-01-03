@@ -1,6 +1,6 @@
 /* Search Bar Styles */
 .search-bar {
-  max-width: 90%; /* Ensure it fits within smaller screens */
+  max-width: 70%; /* Ensure it fits within smaller screens */
   margin: auto;
   margin-top: 10px;
   padding: 20px;
@@ -58,10 +58,11 @@
 
 /* Input Fields */
 .form-fields input,
-.form-fields select {
+.form-fields select,
+.form-fields .react-select__control {
   flex: 1;
   width: 200px; /* Fixed width */
-  height: 40px; /* Fixed height */
+  height: 50px; /* Fixed height */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 0; /* Set border-radius to 0 */
@@ -74,7 +75,8 @@
 }
 
 .form-fields input:focus,
-.form-fields select:focus {
+.form-fields select:focus,
+.form-fields .react-select__control--is-focused {
   border-color: #ffcc00; /* Golden focus border */
   box-shadow: 0 0 5px rgba(255, 204, 0, 0.6); /* Soft glow */
   outline: none;
@@ -82,42 +84,28 @@
 }
 
 /* Specific styles for Flying From and Flying To fields */
-.form-fields .react-select__control {
-  width: 200px; /* Fixed width */
-  height: 40px; /* Fixed height */
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 0; /* Set border-radius to 0 */
-  font-size: 14px;
-  font-family: 'Poppins', sans-serif;
-  color: #003366; /* Navy Blue text */
-  background-color: #ffffff;
-  transition: border-color 0.3s, box-shadow 0.3s;
-  z-index: 1; /* Ensure dropdowns appear above other elements */
+.react-select__control {
+  height: 50px; /* Match height to other fields */
 }
 
-.form-fields .react-select__value-container {
-  height: 40px; /* Fixed height */
+.react-select__value-container {
   padding: 0 10px;
+  display: flex;
+  align-items: center;
+  height: 100%; /* Align text vertically */
 }
 
-.form-fields .react-select__input {
-  height: 40px; /* Fixed height */
+.react-select__single-value {
+  line-height: 1.5;
 }
 
-.form-fields .react-select__single-value {
-  line-height: 40px; /* Align text vertically */
+.react-select__input-container {
+  display: flex;
+  align-items: center;
 }
 
-.form-fields .react-select__menu {
+.react-select__menu {
   z-index: 1000; /* Ensure dropdown suggestions appear above other elements */
-}
-
-.form-fields .react-select__control--is-focused {
-  border-color: #ffcc00; /* Golden focus border */
-  box-shadow: 0 0 5px rgba(255, 204, 0, 0.6); /* Soft glow */
-  outline: none;
-  z-index: 2; /* Ensure focused elements appear above others */
 }
 
 /* Search Button */
@@ -177,8 +165,9 @@
 
   .form-fields input,
   .form-fields select,
-  .form-fields .react-select__control {
+  .react-select__control {
     width: 100%; /* Ensure inputs take full width */
-    height: 40px; /* Fixed height */
+    height: 40px; /* Match height on smaller screens */
   }
 }
+
