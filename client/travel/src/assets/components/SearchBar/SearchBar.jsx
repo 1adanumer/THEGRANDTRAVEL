@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import Autosuggest from 'react-autosuggest';
 import './SearchBar.css';
 
 const SearchBar = () => {
   const [activeTab, setActiveTab] = useState('flights');
   const [formData, setFormData] = useState({});
   const [isExpanded, setIsExpanded] = useState(false);
+  const [suggestions, setSuggestions] = useState([]);
+  const [valueFrom, setValueFrom] = useState('');
+  const [valueTo, setValueTo] = useState('');
 
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
@@ -33,10 +37,10 @@ const SearchBar = () => {
   };
 
   const airportOptions = [
-      { value: 'JFK', label: 'John F. Kennedy International Airport' },
-      { value: 'LAX', label: 'Los Angeles International Airport' },
-      { value: 'ORD', label: "O'Hare International Airport" },
-      { value: 'ATL', label: 'Hartsfield-Jackson Atlanta International Airport' },
+    { value: 'JFK', label: 'John F. Kennedy International Airport' },
+    { value: 'LAX', label: 'Los Angeles International Airport' },
+    { value: 'ORD', label: "O'Hare International Airport" },
+    { value: 'ATL', label: 'Hartsfield-Jackson Atlanta International Airport' },
       { value: 'DFW', label: 'Dallas/Fort Worth International Airport' },
       { value: 'DEN', label: 'Denver International Airport' },
       { value: 'SFO', label: 'San Francisco International Airport' },
@@ -491,34 +495,69 @@ const SearchBar = () => {
     // Add more options as needed
   ];
 
+  const getSuggestions = (value) => {
+    const inputValue = value.trim().toLowerCase();
+    const inputLength = inputValue.length;
+
+    return inputLength === 0 ? [] : airportOptions.filter(
+      airport => airport.label.toLowerCase().includes(inputValue) || airport.value.toLowerCase().includes(inputValue)
+    );
+  };
+
+  const onSuggestionsFetchRequested = ({ value }) => {
+    setSuggestions(getSuggestions(value));
+  };
+
+  const onSuggestionsClearRequested = () => {
+    setSuggestions([]);
+  };
+
+  const onChangeFrom = (event, { newValue }) => {
+    setValueFrom(newValue);
+    setFormData({ ...formData, flyingFrom: newValue });
+  };
+
+  const onChangeTo = (event, { newValue }) => {
+    setValueTo(newValue);
+    setFormData({ ...formData, flyingTo: newValue });
+  };
+
+  const renderSuggestion = (suggestion) => (
+    <div>
+      {suggestion.label}
+    </div>
+  );
+
   const renderFlightFields = () => (
     <>
-      <select
-        className="custom-select"
-        name="flyingFrom"
-        onChange={(e) => setFormData({ ...formData, flyingFrom: e.target.value })}
-        onFocus={handleExpand}
-      >
-        <option value="">Flying From</option>
-        {airportOptions.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-      <select
-        className="custom-select"
-        name="flyingTo"
-        onChange={(e) => setFormData({ ...formData, flyingTo: e.target.value })}
-        onFocus={handleExpand}
-      >
-        <option value="">Flying To</option>
-        {airportOptions.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
+      <Autosuggest
+        suggestions={suggestions}
+        onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+        onSuggestionsClearRequested={onSuggestionsClearRequested}
+        getSuggestionValue={(suggestion) => suggestion.label}
+        renderSuggestion={renderSuggestion}
+        inputProps={{
+          placeholder: 'Flying From',
+          value: valueFrom,
+          name: 'flyingFrom',
+          onChange: onChangeFrom,
+          onFocus: handleExpand
+        }}
+      />
+      <Autosuggest
+        suggestions={suggestions}
+        onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+        onSuggestionsClearRequested={onSuggestionsClearRequested}
+        getSuggestionValue={(suggestion) => suggestion.label}
+        renderSuggestion={renderSuggestion}
+        inputProps={{
+          placeholder: 'Flying To',
+          value: valueTo,
+          name: 'flyingTo',
+          onChange: onChangeTo,
+          onFocus: handleExpand
+        }}
+      />
       <input type="date" name="departureDate" onChange={handleInputChange} />
       <input type="date" name="returnDate" onChange={handleInputChange} />
       {isExpanded && (
