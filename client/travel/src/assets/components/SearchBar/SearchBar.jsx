@@ -20,7 +20,7 @@ const SearchBar = () => {
     const pageMap = {
       flights: '/flights',
       hotels: '/hotels',
-      flightHotels: '/flight-hotels',
+      flightHotels: '/flighthotels',
       packages: '/packages',
     };
 
@@ -487,6 +487,7 @@ const SearchBar = () => {
       { value: 'BTM', label: 'Bert Mooney Airport' },
       { value: 'BZN', label: 'Bozeman Yellowstone International Airport' },
       { value: 'HLN', label: 'Helena Regional Airport' },
+
     // Add more options as needed
   ];
 
