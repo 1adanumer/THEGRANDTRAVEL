@@ -88,14 +88,14 @@
   color: black;
   background-color: #FDD017;
   border: none;
-  border-radius: px;
+  border-radius: 8px;
   margin-top: 30px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .load-more-btn:hover {
-  scale: 1.05;
+  scale: 1;
 }
 
 .load-more-btn:active {

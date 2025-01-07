@@ -9,6 +9,8 @@ import Footer from '../../components/Footer/Footer'
 import Ticker from '../../components/Ticker/Ticker'
 import SecNav from '../../components/SecNav/SecNav'
 import HeroSecVersion from '../../components/HeroSecVersion/HeroSecVersion'
+import HotelsSec from '../../components/HotelsSec/HotelsSec'
+import FlightDeals from '../../components/FlightDeals/FlightDeals'
 
 const Home = () => {
   return (
@@ -16,6 +18,8 @@ const Home = () => {
       <HeroSecVersion/>
       <Ticker/>
       <Destinations/>
+      <FlightDeals/>
+      <HotelsSec  />
       <Banner/>
       <Testimonials/>
       <Contact/>
