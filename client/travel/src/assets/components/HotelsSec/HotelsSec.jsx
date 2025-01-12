@@ -3,7 +3,7 @@ import './HotelsSec.css';
 
 const hotels = [
   {
-    image: 'https://images.pexels.com/photos/29715958/pexels-photo-29715958/free-photo-of-woman-taking-photos-on-a-seaside-beach.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Replace with actual image paths
+    image: 'https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Replace with actual image paths
     name: 'Hotel Sunshine',
     rating: 4.5,
     price: '$120/night',
@@ -11,7 +11,7 @@ const hotels = [
     description: 'A luxurious hotel with stunning views and excellent amenities.',
   },
   {
-    image: 'https://images.pexels.com/photos/29715958/pexels-photo-29715958/free-photo-of-woman-taking-photos-on-a-seaside-beach.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Replace with actual image paths
+    image: 'https://images.pexels.com/photos/262047/pexels-photo-262047.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Replace with actual image paths
     name: 'Ocean Breeze Resort',
     rating: 4.7,
     price: '$150/night',
@@ -19,7 +19,7 @@ const hotels = [
     description: 'Experience the best of beachside living with top-notch services.',
   },
   {
-    image: 'https://images.pexels.com/photos/29715958/pexels-photo-29715958/free-photo-of-woman-taking-photos-on-a-seaside-beach.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Replace with actual image paths
+    image: 'https://images.pexels.com/photos/2306280/pexels-photo-2306280.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Replace with actual image paths
     name: 'Mountain Retreat',
     rating: 4.8,
     price: '$200/night',

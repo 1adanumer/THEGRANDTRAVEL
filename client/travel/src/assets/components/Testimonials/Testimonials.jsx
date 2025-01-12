@@ -6,7 +6,7 @@ const testimonialsData = [
     id: 1,
     name: "Aneeka H",
     country: "UK",
-    testimonial: "Excellent customer service every single time. The entire team go above and beyond to make the whole process of travelling as smooth as possible. They’re always on hand to help with any question no matter how big and small.",
+    testimonial: "The entire team go above and beyond to make the whole process of travelling as smooth as possible.",
     image: "https://lh3.googleusercontent.com/a-/ALV-UjVx7iNV4IIgqVh7x1PL5p2jR7W5feVD78-cvNxIyXUzkTyuz86Qyw=w75-h75-p-rp-mo-ba5-br100",
   },
   {
@@ -25,24 +25,24 @@ const testimonialsData = [
   },
   {
     id: 4,
-    name: "Maria Garcia",
+    name: "John",
     country: "Mexico",
     testimonial: "Very happy with my purchase. Excellent customer service!",
-    image: "person.jpg",
+    image: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
   {
     id: 5,
     name: "Li Wei",
     country: "China",
     testimonial: "Exceeded expectations, would highly recommend!",
-    image: "person.jpg",
+    image: "https://images.pexels.com/photos/8366854/pexels-photo-8366854.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
   {
     id: 6,
-    name: "Adan",
+    name: "Krishna",
     country: "Pakistan",
     testimonial: "Extremely great experinece, surely book a second trip",
-    image: "person.jpg",
+    image: "https://images.pexels.com/photos/21272660/pexels-photo-21272660/free-photo-of-portrait-of-man-with-facial-hair-wearing-chain.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
     {
       id: 7,

@@ -5,9 +5,10 @@
   align-items: center;
   justify-content: center;
   padding: 0px 0px;
-  margin-bottom: 40px;
+
   text-align: center;
   cursor: pointer;
+  background-color: #f9f9f9; /* Set background color to white */
 }
 
 /* Section Title */
@@ -65,13 +66,13 @@
 .bento-image:nth-child(1),
 .bento-image:nth-child(2),
 .bento-image:nth-child(3) {
-  animation-delay: 1s;
+  animation-delay: s;
 }
 
 .bento-image:nth-child(4),
 .bento-image:nth-child(5),
 .bento-image:nth-child(6) {
-  animation-delay: 1s;
+  animation-delay: s;
 }
 
 /* Hover Effect */
