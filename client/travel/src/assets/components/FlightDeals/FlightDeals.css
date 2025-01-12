@@ -84,9 +84,9 @@
   position: absolute;
   top: -35px; /* Adjust as needed */
   left: -25px; /* Adjust as needed */
-  width: 160px; /* Slightly larger than the image */
-  height: 160px; /* Slightly larger than the image */
-  background: rgba(0, 0, 0, 0.1); /* Light black color */
+  width: 210px; /* Slightly larger than the image */
+  height: 210px; /* Slightly larger than the image */
+  background: rgba(60, 57, 57, 0.1); /* Light black color */
   border-radius: 50%;
   z-index: 0; /* Ensure the shadow is behind the image */
 }
@@ -95,8 +95,8 @@
   position: absolute;
   top: -30px; /* Make it protrude out of the card */
   left: -30px; /* Make it protrude out of the card */
-  width: 150px; /* Increase size to match the other circle */
-  height: 150px; /* Increase size to match the other circle */
+  width: 200px; /* Increase size to match the other circle */
+  height: 200px; /* Increase size to match the other circle */
   border-radius: 50%;
   overflow: hidden;
   z-index: 1; /* Ensure the image is above the shadow */
