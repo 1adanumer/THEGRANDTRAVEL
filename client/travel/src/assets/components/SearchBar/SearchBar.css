@@ -213,6 +213,7 @@
   .search-bar {
     padding: 10px; /* Further reduce padding for smaller screens */
     width: 100%; /* Ensure it fits within the screen */
+    margin-bottom: 20px;
   }
 
   .tabs {
