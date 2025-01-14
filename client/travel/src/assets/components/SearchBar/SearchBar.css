@@ -211,23 +211,33 @@
 
 @media (max-width: 480px) {
   .search-bar {
-    padding: 20px; /* Reduce padding for smaller screens */
+    padding: 10px; /* Further reduce padding for smaller screens */
+    width: 100%; /* Ensure it fits within the screen */
   }
 
   .tabs {
     flex-direction: row; /* Keep tabs in a row */
-    gap: 10px; /* Maintain spacing */
+    gap: 5px; /* Reduce spacing */
   }
 
   .tabs button {
     max-width: none; /* Remove fixed width for better scaling */
-    font-size: 14px; /* Smaller font size */
+    font-size: 12px; /* Smaller font size */
+    padding: 8px 0; /* Reduce padding */
   }
 
   .form-fields input,
   .form-fields select,
   .react-select__control {
     width: 100%; /* Ensure inputs take full width */
-    height: 40px; /* Match height on smaller screens */
+    height: 35px; /* Reduce height for smaller screens */
+    font-size: 12px; /* Smaller font size */
+    padding: 5px; /* Reduce padding */
+  }
+
+  .search-button {
+    width: 80%; /* Button spans full width */
+    padding: 10px; /* Reduce padding */
+    font-size: 12px; /* Smaller font size */
   }
 }
