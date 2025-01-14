@@ -1,6 +1,6 @@
 /* Search Bar Styles */
 .search-bar {
-  max-width: 70%; /* Ensure it fits within smaller screens */
+  max-width: 60%; /* Ensure it fits within smaller screens */
   margin: auto;
   margin-top: 10px;
   padding: 20px;
@@ -237,8 +237,31 @@
   }
 
   .search-button {
-    width: 80%; /* Button spans full width */
+    width: 100%; /* Button spans full width */
     padding: 10px; /* Reduce padding */
     font-size: 12px; /* Smaller font size */
+  }
+
+  /* Ensure expanded fields retain their original styles */
+  .form-fields .expanded-field {
+    width: 100%; /* Use full width */
+    max-width: 200px; /* Max width for larger screens */
+    height: 50px; /* Fixed height */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 0; /* Set border-radius to 0 */
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    color: #003366; /* Navy Blue text */
+    background-color: #ffffff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    z-index: 1; /* Ensure dropdowns appear above other elements */
+  }
+
+  .form-fields .expanded-field:focus {
+    border-color: #ffcc00; /* Golden focus border */
+    box-shadow: 0 0 5px rgba(255, 204, 0, 0.6); /* Soft glow */
+    outline: none;
+    z-index: 2; /* Ensure focused elements appear above others */
   }
 }
