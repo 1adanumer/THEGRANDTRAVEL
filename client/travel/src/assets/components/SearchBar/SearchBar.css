@@ -1,6 +1,6 @@
 /* Search Bar Styles */
 .search-bar {
-  max-width: 60%; /* Ensure it fits within smaller screens */
+  max-width: 70%; /* Ensure it fits within smaller screens */
   margin: auto;
   margin-top: 10px;
   padding: 20px;
@@ -15,7 +15,6 @@
 }
 
 /* Tabs Styling */
-/* Tabs Styling */
 .tabs {
   display: flex;
   justify-content: flex-start; /* Align tabs to the left */
@@ -26,7 +25,6 @@
   margin-left: 0; /* Ensure tabs are flush with the left edge */
   width: auto; /* Ensure the width adjusts dynamically */
 }
-
 
 .tabs button {
   flex: 1;
@@ -46,7 +44,6 @@
 
 .tabs button.active {
   color: #fff; /* Navy Blue */
-  background-color: #2c2a2a6b;
   border-bottom-color: #ffcc00; /* Golden */
 }
 
@@ -68,7 +65,8 @@
 .form-fields select,
 .form-fields .react-select__control {
   flex: 1;
-  width: 200px; /* Fixed width */
+  width: 100%; /* Use full width */
+  max-width: 200px; /* Max width for larger screens */
   height: 50px; /* Fixed height */
   padding: 10px;
   border: 1px solid #ccc;
@@ -213,7 +211,7 @@
 
 @media (max-width: 480px) {
   .search-bar {
-    padding: 15px; /* Reduce padding for smaller screens */
+    padding: 20px; /* Reduce padding for smaller screens */
   }
 
   .tabs {
