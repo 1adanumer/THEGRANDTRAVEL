@@ -38,7 +38,7 @@ const SearchBar = () => {
         const response = await fetch(`http://api.aviationstack.com/v1/flights?access_key=0d864873390e3b105267e8b1623ad5ef&dep_iata=${formData.flyingFrom}&arr_iata=${formData.flyingTo}`);
         const data = await response.json();
         // Assuming you have a flight booking page that can handle the search results
-        window.location.href = `/flights?results=${encodeURIComponent(JSON.stringify(data))}`;
+        window.location.href = `/flights`;
       } catch (error) {
         console.error("Error fetching flight data:", error);
       }
