@@ -46,6 +46,8 @@ const Header = () => {
             <a href="/signup">SignUp</a>
             <a href="/login">Login</a>
             <a href="/hotels">Hotels</a>
+            <a href="/flights">Flights</a>
+            
           </div>
         )}
       </div>
